@@ -423,7 +423,15 @@ td, th {
 // ==========================================
 
 body {
-//	font-size: 10px;
+	font-family: 'Fira Sans', sans-serif;
+}
+
+h1, h2, p {
+	margin: 0;
+}
+
+h1, h2 {
+	font-weight: bold;
 }
 
 .loader {
@@ -434,15 +442,10 @@ body {
 	bottom: 0;
 	width: 100%;
 	height: calc(100vh + 1px);
-//	background: #090909;
-	background: -webkit-linear-gradient(90deg, rgba(56,47,98,0) 0%, rgba(56,47,98,1) 100%, rgba(56,47,98,1) 100%) , 
-				-webkit-linear-gradient(0deg, rgba(126,67,92,0) 0%, rgba(126,67,92,1) 100%, rgba(126,67,92,1) 100%) , 
-				-webkit-linear-gradient(-90deg, rgba(168,85,119,0) 0%, rgba(168,85,119,1) 100%, rgba(168,85,119,1) 100%) , 
-				-webkit-linear-gradient(-180deg, rgba(17,20,75,0) 0%, rgba(17,20,75,1) 100%, rgba(17,20,75,1) 100%);
-//}
+	background: #222;
 
 
-	#loader-logo	 {
+	#loader-logo{
 		position: absolute;
 		left: 0;
 		right: 0;
@@ -455,8 +458,8 @@ body {
 
 #menu-button {
 	position: fixed;
-    top: 0;
-    right: 0;
+    top: 10px;
+    right: 10px;
     width: 40px;
     height: 40px;
     z-index: 300;
@@ -472,19 +475,26 @@ body {
     width: 100%;
     height: 100vh;
     z-index: 300;
-    background: orange;
+    background: #2c2c2c;
 	a {
 		display: block;	
 		text-align: center;
+		color: #e2e2e2;
+		text-decoration: none;
+		padding: 30px 0;
+		font-size: 40px;
 	}
 	.close-btn {
+		width: 40px;
+		height: 40px;
 		position: absolute;
 		top: 10px;
 		right: 10px;
 		cursor: pointer;
 	}
 	a:hover {
-		background: purple;
+		color: #fff;
+		text-decoration: underline;
 	}
 }
 
@@ -499,16 +509,64 @@ body {
 	right: 0;
 	bottom: 0;
 	width: 100%;
-	height: 100vh;
-	background: pink;
-	img {
-		position: absolute;
+	height: calc(100vh + 1px);
+	background: #222;
+	.hero-logo-container {
+		position: relative;
+		top: 0;
 		left: 0;
 		right: 0;
 		bottom: 0;
-		top: 0;
-		margin: auto;
+		width: 100%;
+		height: 100%;
+		
+		#hero-logo {
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			margin: auto;
+			width: 360px;
+			z-index: 20;
+		}
 	}
+	#video,
+	.bg-image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-size: cover;
+		background-position: 50% 50%;
+		overflow: hidden;
+	}
+	#video {
+		opacity: 0;
+	}
+	.overlay-video {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #000;
+		z-index: 1;
+		opacity: .6;
+	}
+}
+
+video {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	min-width: 100%;
+	min-height: 100%;
+	width: auto;
+	height: auto;
+	z-index: 0;
+	transform: translateX(-50%) translateY(-50%);
 }
 
 // ==========================================
@@ -516,17 +574,28 @@ body {
 // ==========================================
 
 #about-section {
-	background: red;
+	background: #db1e26;
 	height: 100vh;
 	padding: 200px 0;
 	.img-a {
 		text-align: center;
-		img {
-//			width: 100%;
-		}
+	}
+	h1 {
+		margin: 0;
+		font-size: 80px;
+		color: #dc6466;
+		margin-bottom: 10px;
 	}
 	p {
 		max-width: 300px;
+		color: #fff;
+		margin-bottom: 0;
+	}
+	a {
+		display: inline-block;
+		margin-top: 20px;
+		color: #6e050c;
+		text-decoration: none;
 	}
 }
 
@@ -535,21 +604,25 @@ body {
 // ==========================================
 
 #showreel-section {
-	background: green;
+	background: #000;
 	height: 100vh;
 	padding: 200px 0;
 	.showreel {
 		text-align: center;
-		img {
-//			width: 100%;
+		.showreel-width {
+			max-width: 500px;
+			margin: 0 auto;
 		}
 	}
 	p {
 		text-align: center;
 	}
 	button {
-		margin-top: 2.5em;
 		text-align: center;
+		color: #fff;
+		border-radius: 0px;
+		width: 100%;
+		letter-spacing: 0;
 	}
 }
 
@@ -558,7 +631,7 @@ body {
 // ==========================================
 
 #works-section {
-	background: blue;
+	background: #f4f4f4;
 //	height: 100vh;
 	padding: 100px 0;
 	.container {
@@ -572,17 +645,41 @@ body {
 	}
 }
 
+#more-works-btn {
+    border-radius: 4px;
+    background: #de1f26;
+    color: #fff;
+    letter-spacing: 0;
+    margin-top: 40px;
+    height: 50px;
+    border: none;
+}
+
+// ==========================================
+// Contact section
+// ==========================================
+#contact-section {
+	background: #de1f26;
+	padding: 5em;
+    text-align: center;
+    color: #fff;
+	p {
+		line-height: 40px;
+	}
+}
+
 // ==========================================
 // Footer
 // ==========================================
 
 #footer-section {
-	background: yellow;
+	background: #2c2c2c;
 //	height: 100vh;
 	padding: 50px 0;
 	p {
 		text-align: center;
 		margin-bottom: 0;
+		color: #fff;
 		img {
 			width: 100%;
 		}

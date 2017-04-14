@@ -1,12 +1,106 @@
+var md = new MobileDetect(window.navigator.userAgent);
+var isDesktop;
+var imagesLoaded = false;
+var bgImage01 = 'https://placeimg.com/1000/800/arch';
+var showVideo = true;
 
 $(document).ready(function(){
 	preloadAssets()
 })
 
+function initAnimation() {
+
+    var video = document.getElementById('video-el');
+    window.makeVideoPlayableInline(video);
+
+    if (showVideo) {
+        isDesktop = true;
+
+        if (md.phone() || md.tablet()) {
+            isDesktop = false;
+
+            if(iOSversion()[0] > 9) {
+                isDesktop = true;
+            }
+        }
+
+    }
+
+    var videoURL = 'http://thenewcode.com/assets/videos/polina.mp4';
+    if (videoURL !== "" && videoURL.indexOf('http://') > -1 && isDesktop) {
+        videoSetup();
+    } else {
+		
+		$('.bg-image').css('background-image', 'url('+ bgImage01 + ')')
+//        $('.bg-image-01').attr('src', bgImage01);
+        initCSS();
+        startAnimation();
+        adjustCopyLayout();
+    }
+}
+
+function videoSetup() {
+
+    $('#video').show();
+
+    var mp4 = 'http://thenewcode.com/assets/videos/polina.mp4';
+    var webm = 'http://thenewcode.com/assets/videos/polina.webm';
+
+    var vid = document.getElementById('video-el');
+
+    $('#video video > source:eq(0)').attr('src', mp4);
+    $('#video video > source:eq(1)').attr('src', webm);
+
+    $('#video video').load();
+
+
+    $('#video video').bind('loadeddata', function (e) {
+
+
+        if (vid.readyState == 3 || vid.readyState == 4 || vid.readyState == 2 || vid.readyState == 'complete' || vid.readyState == 'loaded') {
+
+            $('.bg-image').hide();
+            initCSS();
+            startAnimation();
+            adjustCopyLayout();
+
+            // $('#video-el').get(0).play();
+        }
+
+    });
+
+    $('#video video').bind('error', function (e) {
+        $('#video').hide();
+        $('.bg-image-01').attr('src', bgImage01);
+        initCSS();
+        startAnimation();
+        adjustCopyLayout();
+    });
+
+}
+
+function initCSS() {
+	console.log("initCSS")
+	
+	TweenMax.set('#video', {autoAlpha:0})
+}
+
+function startAnimation() {
+	console.log("start animation")
+	
+	var tl = new TimelineMax()
+	
+	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
+}
+
+function adjustCopyLayout() {
+	console.log("adjust copy layout")
+}
+
 function preloadAssets() {
 
     var i = [
-			'https://placeholdit.imgix.net/~text?txtsize=25&txt=300%C3%97100&w=300&h=100'
+			bgImage01
         ];
 
     preloadimages(i).done(function () {
@@ -15,17 +109,21 @@ function preloadAssets() {
 		setTimeout(function(){
 			$('.loader').hide()
 			$('#website-section').show()
+			initAnimation()
 		}, 2000)
 
     })
 }
 
 $("#menu-button").click(function(){
-	console.log('CLICKED BRA')
 	$('#menu-list').fadeIn()
 })
 
 $('.close-btn').click(function(){
+	$('#menu-list').fadeOut()
+})
+
+$('#menu-list a').click(function(){
 	$('#menu-list').fadeOut()
 })
 
