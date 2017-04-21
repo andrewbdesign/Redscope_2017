@@ -1,10 +1,11 @@
 var md = new MobileDetect(window.navigator.userAgent);
-var isDesktop;
+var isDesktop = true;
 var imagesLoaded = false;
 var bgImage01 = 'https://placeimg.com/1000/800/arch';
 var showVideo = true;
 
 $(document).ready(function(){
+//	initAnimation()
 	preloadAssets()
 })
 
@@ -83,6 +84,11 @@ function initCSS() {
 	console.log("initCSS")
 	
 	TweenMax.set('#video', {autoAlpha:0})
+	
+//	TweenMax.set('.bg-image-01', {autoAlpha:0})
+	TweenMax.set('.bg-image-02', {autoAlpha:0})
+	TweenMax.set('.bg-image-03', {autoAlpha:0})
+	TweenMax.set('.bg-image-04', {autoAlpha:0})
 }
 
 function startAnimation() {
@@ -91,6 +97,20 @@ function startAnimation() {
 	var tl = new TimelineMax()
 	
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
+	
+	var showreelAnimation = new TimelineMax({repeat:-1})
+	
+//	showreelAnimation.fromTo('.bg-image-01', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '0')
+	showreelAnimation.fromTo('.bg-image-02', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '4')
+	showreelAnimation.fromTo('.bg-image-03', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
+		TweenMax.set('.bg-image-02', {autoAlpha:0})
+	}}, '8')
+	showreelAnimation.fromTo('.bg-image-04', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
+		TweenMax.set('.bg-image-03', {autoAlpha:0})
+	}}, '12')
+	showreelAnimation.to('.bg-image-04', 1, {autoAlpha:0, ease:Power1.easeOut}, '16')
+	
+	
 }
 
 function adjustCopyLayout() {
@@ -102,6 +122,12 @@ function preloadAssets() {
     var i = [
 			bgImage01
         ];
+	
+	if(isDesktop) {
+		i.push('http://thenewcode.com/assets/videos/polina.mp4', 'http://thenewcode.com/assets/videos/polina.webm')
+	}
+	
+	console.log('images assets:', i)
 
     preloadimages(i).done(function () {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
@@ -117,14 +143,17 @@ function preloadAssets() {
 
 $("#menu-button").click(function(){
 	$('#menu-list').fadeIn()
+	$("body").addClass("modal-open")
 })
 
 $('.close-btn').click(function(){
 	$('#menu-list').fadeOut()
+	$("body").removeClass("modal-open")
 })
 
 $('#menu-list a').click(function(){
 	$('#menu-list').fadeOut()
+	$("body").removeClass("modal-open")
 })
 
 
