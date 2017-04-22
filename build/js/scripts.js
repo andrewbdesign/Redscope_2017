@@ -5,7 +5,6 @@ var bgImage01 = 'https://placeimg.com/1000/800/arch';
 var showVideo = true;
 
 $(document).ready(function(){
-//	initAnimation()
 	preloadAssets()
 })
 
@@ -28,7 +27,7 @@ function initAnimation() {
     }
 
     var videoURL = 'http://thenewcode.com/assets/videos/polina.mp4';
-    if (videoURL !== "" && videoURL.indexOf('http://') > -1 && isDesktop) {
+    if (videoURL !== "" && videoURL.indexOf('http://') > -1 && isDesktop && isHome) {
         videoSetup();
     } else {
 		

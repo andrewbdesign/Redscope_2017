@@ -1,0 +1,53 @@
+.about-copy {
+	position: relative;
+    z-index: 20;
+}
+
+.img-b {
+	position: relative;
+    bottom: 100px;
+    right: 40px;
+    z-index: 1;
+}
+
+// About showreel
+// ===========================
+
+.about-showreel {
+	margin-bottom: 0 !important;
+}
+
+.about-container {
+	max-width: 820px;
+}
+
+// Team section
+// ===========================
+
+#team-section {
+	padding: 100px 0;
+	.container {
+		max-width: 680px;
+	}
+	h1 {
+		text-align: center;
+		margin-bottom: 40px;
+	}
+	img {
+		width: 100%;
+	}
+	p.member-name {
+		font-family: 'Fira Sans', sans-serif;
+		font-weight: 700;
+	}
+	p.member-role  {
+		font-size: 12px;
+		margin-bottom: 10px;
+	}
+	p.member-description {
+		margin-bottom: 30px;
+	}
+	.column {
+		margin: 0 30px;
+	}
+}

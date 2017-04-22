@@ -1,0 +1,42 @@
+#email-form-section {
+	padding: 100px 0 100px;
+	background: #f2f2f2;
+	.container {
+		width: 680px;
+	}
+	.email-container-template {
+		background: #FFF;
+		margin-top: -150px;
+		z-index: 200;
+		position: relative;
+		padding: 30px;
+		font-family: 'Fira Sans', sans-serif;
+		input {
+			border-radius: 0;
+			display: block;
+			width: 100%;
+			margin-bottom: 10px;
+			background: #e5e5e5;
+			border: none;
+		}
+		textarea {
+			border-radius: 0px;
+			display: block;
+			width: 100%;
+			margin-bottom: 10px;
+			height: 100px;
+			margin-top: 0px;
+			background: #e5e5e5;
+			border: none;
+		}
+		
+		.submit-btn {
+			background: #c1161c;
+			width: 200px;
+			margin-right: 0;
+			margin-left: auto;
+			position: relative;
+			color: #fff;
+		}
+	}
+}
