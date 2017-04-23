@@ -43,8 +43,8 @@ function videoSetup() {
 
     $('#video').show();
 
-    var mp4 = 'http://thenewcode.com/assets/videos/polina.mp4';
-    var webm = 'http://thenewcode.com/assets/videos/polina.webm';
+    var mp4 = 'hero-banner.mp4';
+    var webm = 'hero-banner.webm';
 
     var vid = document.getElementById('video-el');
 
@@ -122,8 +122,8 @@ function preloadAssets() {
 			bgImage01
         ];
 	
-	if(isDesktop) {
-		i.push('http://thenewcode.com/assets/videos/polina.mp4', 'http://thenewcode.com/assets/videos/polina.webm')
+	if(isDesktop && isHome) {
+		i.push('hero-banner.mp4', 'hero-banner.webm')
 	}
 	
 	console.log('images assets:', i)
