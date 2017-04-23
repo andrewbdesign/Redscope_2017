@@ -12,6 +12,11 @@
 	
 	<script>
 		var isHome = true;
+		
+		var videoGallery = {
+			name: 'Title',
+			
+		}
 	</script>
 </head>
 <body>
@@ -205,7 +210,7 @@
 	
 		<div id="hero-section">
 			
-			<div class="bg-image"></div>
+			<div class="bg-image hero-bg-image"></div>
 			<div id="video">
                 <video id="video-el" playsinline muted autoplay loop>
                     <source src="" type="video/mp4">
@@ -360,27 +365,27 @@
 			<div class="container">
 				<div class="row">
 				<div class="img-a six columns">
-					<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97300&w=300&h=300" alt="">
+					<img class="letter-r" src="img/letter-r-icon.png" alt="">
+					<img class="letter-r-bg" src="img/letter-r-bg.jpg" alt="">
 				</div>
 				<div class="six columns">
 					<h1>We the<br>Story Tellers</h1>
 					<p>We create, produce, and bring your story, brief and brand to life through content. We're a team of collaborators that are down to earth, no fuss, simple and ambitious to push your ideas to the next level</p>
-					<a href="#">Our Work</a> <span class="divider-link">|</span> <a href="">Who we are</a>
+					<a href="works.html">Our Work</a> <span class="divider-link">|</span> <a href="about.html">Who we are</a>
 				</div>
 				</div>
 			</div>
 		</div>
 		
 		<div id="showreel-section">
-			<div class="bg-image-sections">
-				<div class="bg-image-01"></div>
-				<div class="bg-image-02"></div>
-				<div class="bg-image-03"></div>
-				<div class="bg-image-04"></div>
-			</div>
+			<div class="bg-image-sections"></div>
 			<div class="gradient-mask-feather"></div>
 			
 			<div class="container-showreel-thumbnail">
+				<div class="boxer-man">
+					<img class="character" src="img/showreel/01-boxer-man.png" alt="">
+					<img class="bg" src="img/showreel/01-boxer-man-bg.jpg" alt="">
+				</div>
 				<div class="showreel-btn">Play showreel></div>
 			</div>
 		</div>
@@ -389,24 +394,77 @@
 			<div class="container">
 				<div class="row">
 					<div class="works">
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+					</div>
+				</div>
+				<div class="row">
+					<div class="works">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+					</div>
+				</div>
+					<div class="row">
+					<div class="works">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
-						<div class="six columns">
-							<img src="https://placeholdit.imgix.net/~text?txtsize=28&txt=300%C3%97150&w=300&h=150" alt="">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
 						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="works">
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+						<div class="six columns video-column">
+							<div>
+								<video loop>
+									 <source src="works/video-test.mp4" type="video/mp4">
+								</video>
+							</div>
+						</div>
+					</div>
+				</div>
+						
 						
 						
 					</div>
@@ -440,7 +498,9 @@
 				<div class="row">
 					<div class="four columns">
 						<div class="logo-redscope-footer">
-							<img src="logo-redscope.svg" alt="">	
+							<a href="#">
+								<img src="logo-redscope.svg" alt="">		
+							</a>
 						</div>
 					</div>
 					<div class="four columns">

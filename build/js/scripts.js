@@ -2,7 +2,9 @@ var md = new MobileDetect(window.navigator.userAgent);
 var isDesktop = true;
 var imagesLoaded = false;
 var bgImage01 = 'https://placeimg.com/1000/800/arch';
+var bgImage02 = 'img/about-hero-image.jpg'
 var showVideo = true;
+
 
 $(document).ready(function(){
 	preloadAssets()
@@ -26,12 +28,13 @@ function initAnimation() {
 
     }
 
-    var videoURL = 'http://thenewcode.com/assets/videos/polina.mp4';
-    if (videoURL !== "" && videoURL.indexOf('http://') > -1 && isDesktop && isHome) {
+    var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
+    if (videoURL !== "" && videoURL.indexOf('https://') > -1 && isDesktop && isHome) {
         videoSetup();
     } else {
 		
-		$('.bg-image').css('background-image', 'url('+ bgImage01 + ')')
+		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
+		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
 //        $('.bg-image-01').attr('src', bgImage01);
         initCSS();
         startAnimation();
@@ -97,17 +100,33 @@ function startAnimation() {
 	
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
 	
-	var showreelAnimation = new TimelineMax({repeat:-1})
+//	var showreelAnimation = new TimelineMax({repeat:-1})
+//	
+//	showreelAnimation.fromTo('.bg-image-02', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '4')
+//	showreelAnimation.fromTo('.bg-image-03', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
+//		TweenMax.set('.bg-image-02', {autoAlpha:0})
+//	}}, '8')
+//	showreelAnimation.fromTo('.bg-image-04', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
+//		TweenMax.set('.bg-image-03', {autoAlpha:0})
+//	}}, '12')
+//	showreelAnimation.to('.bg-image-04', 1, {autoAlpha:0, ease:Power1.easeOut}, '16')
 	
-//	showreelAnimation.fromTo('.bg-image-01', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '0')
-	showreelAnimation.fromTo('.bg-image-02', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '4')
-	showreelAnimation.fromTo('.bg-image-03', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
-		TweenMax.set('.bg-image-02', {autoAlpha:0})
-	}}, '8')
-	showreelAnimation.fromTo('.bg-image-04', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
-		TweenMax.set('.bg-image-03', {autoAlpha:0})
-	}}, '12')
-	showreelAnimation.to('.bg-image-04', 1, {autoAlpha:0, ease:Power1.easeOut}, '16')
+	// About text animation
+	var aboutText = new TimelineMax({repeat: -1})
+	var words = ['Story Tellers', 'Explorers', 'Creators', 'Collaborators']
+	TweenMax.from('.about-hero-text', 1, {alpha:0, ease:Power1.easeOut}, '0')
+	aboutText.to('#words', 1, {scrambleText:{text:words[1], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '3')
+	aboutText.to('#words', 1, {scrambleText:{text:words[2], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '6')
+	aboutText.to('#words', 1, {scrambleText:{text:words[3], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '9')
+	aboutText.to('#words', 1, {scrambleText:{text:words[0], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '12')
+	
+	$('.video-column video').on('mouseover', function(){
+		console.log('Hello it is over the video')
+		$(this).get(0).play()
+	}).on('mouseout', function(){
+		console.log('Goodbye mouse')
+		$(this).get(0).pause()
+	})
 	
 	
 }
@@ -123,7 +142,8 @@ function preloadAssets() {
         ];
 	
 	if(isDesktop && isHome) {
-		i.push('hero-banner.mp4', 'hero-banner.webm')
+		i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+		console.log('video-banner')
 	}
 	
 	console.log('images assets:', i)
@@ -131,11 +151,11 @@ function preloadAssets() {
     preloadimages(i).done(function () {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
         console.log("images finished loading")
-		setTimeout(function(){
+//		setTimeout(function(){
 			$('.loader').hide()
 			$('#website-section').show()
 			initAnimation()
-		}, 2000)
+//		}, 2000)
 
     })
 }
@@ -143,6 +163,12 @@ function preloadAssets() {
 $("#menu-button").click(function(){
 	$('#menu-list').fadeIn()
 	$("body").addClass("modal-open")
+	
+	TweenMax.set('.right-menu a', {alpha:0, y:-10,})
+	
+	var tl = new TimelineMax()
+	
+	tl.staggerTo('.right-menu a', .6, {alpha:1, y:0, ease:Power1.eaesOut}, .2, '0')
 })
 
 $('.close-btn').click(function(){
@@ -154,6 +180,16 @@ $('#menu-list a').click(function(){
 	$('#menu-list').fadeOut()
 	$("body").removeClass("modal-open")
 })
+
+$("#contact-section").click(function(){
+	window.location.assign("contact.html")
+})
+
+$("#more-works").click(function(){
+	window.location.assign("works.html")
+})
+
+
 
 
 
