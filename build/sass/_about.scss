@@ -96,8 +96,9 @@
 		text-align: center;
 		margin-bottom: 40px;
 	}
-	img {
-		width: 100%;
+	video {
+		width: 100% !important;
+		height: auto !important;
 	}
 	p.member-name {
 		font-family: 'Fira Sans', sans-serif;

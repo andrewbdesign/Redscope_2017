@@ -128,6 +128,10 @@ function startAnimation() {
 		$(this).get(0).pause()
 	})
 	
+	$('.bio-column video').on('mouseover', function(){
+		console.log('Hello it is over the video')
+		$(this).get(0).play()
+	})
 	
 }
 
