@@ -1,3 +1,82 @@
+#hero-section {
+	.icon-letter-container {
+		position: absolute;
+		top: 0;
+		left: -50%;
+		width: 320px;
+		height: 450px;
+		right: 0;
+		bottom: 0;
+		margin: auto;
+
+	}
+	.letter-c-icon {
+		width: 270px;
+		height: 340px;
+		position: relative;
+		top: 0;
+		left: 0;
+		z-index: 20;
+	}
+	.letter-c-bg {
+		position: absolute;
+		left: 0;
+		width: 300px;
+		z-index: 19;
+		height: 298px;
+	}
+}
+
+.contact-hero {
+	background: #151515 !important;
+	a {
+		text-decoration: none;
+		color: #fff;
+	}
+	h1 {
+		color: #606060;
+		text-align: center;
+		text-decoration: none;
+		font-size: 50px;
+		font-family: 'Fira Sans', sans-serif;
+		position: relative;
+		left: -20px;
+		margin-bottom: 20px;
+	}
+	.icons {
+		width: 20px;
+		height: 20px;
+		position: relative;
+		margin-left: -20px;
+		
+	}
+	.icon-pin {
+		top: 4px;
+		right: 6px;
+	}
+	.icon-email {
+		right: 10px;
+		top: 5px;
+	}
+	.icon-phone {
+		right: 10px;
+		top: 5px;
+	}
+	.email-container {
+		padding: 230px 0;
+		max-width: 780px;
+		margin: 0 auto;
+		padding-left: 130px;
+		color: #fff;
+		position: relative;
+		z-index: 30;
+		.container {
+			max-width: 520px;
+			margin-right: 0;
+		}
+	}
+	
+}
 #email-form-section {
 	padding: 100px 0 100px;
 	background: #f2f2f2;
@@ -11,6 +90,7 @@
 		position: relative;
 		padding: 30px;
 		font-family: 'Fira Sans', sans-serif;
+		
 		input {
 			border-radius: 0;
 			display: block;
@@ -39,4 +119,5 @@
 			color: #fff;
 		}
 	}
+	
 }

@@ -19,6 +19,17 @@
 		position: relative;
 		font-size: 50px;
 		letter-spacing: 1px;
+		display: inline-block;
+		width: 520px;
+		text-align: left;
+	}
+	#word-01,
+	#word-02,
+	#word-03,
+	#word-04 {
+		position: absolute;
+//		left: 0;
+//		top: 0;
 	}
 }
 .about-top {

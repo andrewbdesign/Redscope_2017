@@ -1,7 +1,7 @@
 var md = new MobileDetect(window.navigator.userAgent);
 var isDesktop = true;
 var imagesLoaded = false;
-var bgImage01 = 'https://placeimg.com/1000/800/arch';
+//var bgImage01 = 'https://placeimg.com/1000/800/arch';
 var bgImage02 = 'img/about-hero-image.jpg'
 var showVideo = true;
 
@@ -33,7 +33,7 @@ function initAnimation() {
         videoSetup();
     } else {
 		
-		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
+//		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
 		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
 //        $('.bg-image-01').attr('src', bgImage01);
         initCSS();
@@ -100,36 +100,75 @@ function startAnimation() {
 	
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
 	
-//	var showreelAnimation = new TimelineMax({repeat:-1})
-//	
-//	showreelAnimation.fromTo('.bg-image-02', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut}, '4')
-//	showreelAnimation.fromTo('.bg-image-03', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
-//		TweenMax.set('.bg-image-02', {autoAlpha:0})
-//	}}, '8')
-//	showreelAnimation.fromTo('.bg-image-04', 1, {autoAlpha:0}, {autoAlpha:1, ease:Power1.easeOut, onComplete: function(){
-//		TweenMax.set('.bg-image-03', {autoAlpha:0})
-//	}}, '12')
-//	showreelAnimation.to('.bg-image-04', 1, {autoAlpha:0, ease:Power1.easeOut}, '16')
+	var showreelAnimation = new TimelineMax()
+	//	showreelAnimation.fromTo('.boxer-man', 2, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '0')
+		showreelAnimation
+	//		.from('.boxer-man', 1, {alpha:0, ease:Power1.easeOut}, '0')
+			.fromTo('.boxer-man .character', 6, {scale:1, x:0}, {scale:1.05, x:-20, ease:Power1.easeOut}, '1')
+	//		.to('.boxer-man', 1, {alpha:0, ease:Power1.easeInOut}, '9')
 	
-	// About text animation
-	var aboutText = new TimelineMax({repeat: -1})
-	var words = ['Story Tellers', 'Explorers', 'Creators', 'Collaborators']
-	TweenMax.from('.about-hero-text', 1, {alpha:0, ease:Power1.easeOut}, '0')
-	aboutText.to('#words', 1, {scrambleText:{text:words[1], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '3')
-	aboutText.to('#words', 1, {scrambleText:{text:words[2], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '6')
-	aboutText.to('#words', 1, {scrambleText:{text:words[3], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '9')
-	aboutText.to('#words', 1, {scrambleText:{text:words[0], chars:"lowerCase", speed:.2,}, ease:Power1.easeOut}, '12')
+	
+	
+	if(isAbout) {
+		
+
+		// About text animation
+		var aboutText = new TimelineMax({repeat:-1})
+		var words = ['Story Tellers', 'Explorers', 'Creators', 'Collaborators']
+		TweenMax.from('.about-hero-text', 1, {alpha:0, ease:Power1.easeOut}, '0')
+
+		$('#word-01').html(words[0])
+		$('#word-02').html(words[1])
+		$('#word-03').html(words[2])
+		$('#word-04').html(words[3])
+
+		var word01Width = $('#word-01').outerWidth(),
+			word02Width = $('#word-02').outerWidth(),
+			word03Width = $('#word-03').outerWidth(),
+			word04Width = $('#word-04').outerWidth();
+
+		var weThe = 170 // We The text width
+		var containerText = 560 // container Text Width
+
+		var word01Offset = (560 - (word01Width + weThe) )/2,
+			word02Offset = (560 - (word02Width + weThe) )/2,
+			word03Offset = (560 - (word03Width + weThe) )/2,
+			word04Offset = (560 - (word04Width + weThe) )/2
+
+
+		var mySplitText01 = new SplitText('#word-01', {type:"chars"}),
+			mySplitText02 = new SplitText('#word-02', {type:"chars"}),
+			mySplitText03 = new SplitText('#word-03', {type:"chars"}),
+			mySplitText04 = new SplitText('#word-04', {type:"chars"});
+
+		var firstTween = new TimelineLite()
+		firstTween.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '0')
+
+		aboutText.staggerTo('#word-01 div', .3, {alpha:0}, .1, '3.7')
+
+		aboutText.staggerFromTo('#word-02 div', .5, {alpha:0}, {alpha:1}, .1, '4')
+		aboutText.staggerTo('#word-02 div', .3, {alpha:0}, .1, '7.7')
+
+		aboutText.staggerFromTo('#word-03 div', .5, {alpha:0}, {alpha:1}, .1, '8')
+		aboutText.staggerTo('#word-03 div', .3, {alpha:0}, .1, '11.7')
+
+		aboutText.staggerFromTo('#word-04 div', .5, {alpha:0}, {alpha:1}, .1, '12')
+		aboutText.staggerTo('#word-04 div', .3, {alpha:0}, .1, '15.7')
+
+		aboutText.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '16')
+	}
 	
 	$('.video-column video').on('mouseover', function(){
-		console.log('Hello it is over the video')
 		$(this).get(0).play()
+		$(this).next().css('opacity', 1)
 	}).on('mouseout', function(){
-		console.log('Goodbye mouse')
+		
+		$(this).get(0).currentTime = 0;
 		$(this).get(0).pause()
+		$(this).next().css('opacity', 0)
 	})
 	
 	$('.bio-column video').on('mouseover', function(){
-		console.log('Hello it is over the video')
 		$(this).get(0).play()
 	})
 	
@@ -142,7 +181,7 @@ function adjustCopyLayout() {
 function preloadAssets() {
 
     var i = [
-			bgImage01
+			bgImage02
         ];
 	
 	if(isDesktop && isHome) {
