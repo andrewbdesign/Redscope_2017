@@ -100,41 +100,6 @@ function videoSetup() {
 }
 
 
-// function videoSetupMainVideos(videoElement, ) {
-
-//     var vid = document.getElementById(videoElement);
-
-//     $('#video video > source:eq(0)').attr('src', mp4);
-//     $('#video video > source:eq(1)').attr('src', webm);
-
-//     $('#video video').load();
-
-
-//     $('#video video').bind('loadeddata', function (e) {
-
-
-//         if (vid.readyState == 3 || vid.readyState == 4 || vid.readyState == 2 || vid.readyState == 'complete' || vid.readyState == 'loaded') {
-
-//             $('.bg-image').hide();
-//             initCSS();
-//             startAnimation();
-//             adjustCopyLayout();
-
-//             // $('#video-el').get(0).play();
-//         }
-
-//     });
-
-//     $('#video video').bind('error', function (e) {
-//         $('#video').hide();
-//         $('.bg-image-01').attr('src', bgImage01);
-//         initCSS();
-//         startAnimation();
-//         adjustCopyLayout();
-//     });
-
-// }
-
 
 function initCSS() {
 	console.log("initCSS")
