@@ -157,7 +157,7 @@ p {
 		a {
 			padding-left: 0;
 			padding-bottom: 20px;
-			font-size: 30px;	
+			font-size: 30px;
 		}
 	}
 	@media (min-width: $mobile) {
@@ -177,7 +177,7 @@ p {
 		.right-menu a{
 			padding-bottom: 50px;
 			font-size: 50px;
-			padding-left: 0;	
+			padding-left: 0;
 		}
 		.menu-container {
 			width: 790px;
@@ -296,12 +296,21 @@ p {
 	}
 	@media (min-width: $mobile) {
 		.img-a {
-			left: 140px;
+			left: 60px;
 			height: auto;
 		}
 		.letter-r,
 		.letter-r-bg {
 			left: 100px;
+		}
+	}
+	@media (min-width: $tablet) {
+		.img-a {
+			left: 140px;
+	    height: auto;
+			.letter-r {
+				width: 400px;
+			}
 		}
 	}
 	h1 {
@@ -333,8 +342,9 @@ p {
 	}
 	.divider-link {
 		display: inline-block;
-		margin: 0 15px;
+		margin: 0;
 	}
+
 }
 
 // ==========================================
@@ -368,11 +378,19 @@ p {
 			position: absolute;
 			width: 100%;
 			z-index: 40;
-			left: -30px;
+
 			bottom: 0;
 			margin: auto;
-			min-width: 478px;
-			max-width: 540px;
+			left: -50px;
+	    width: 540px;
+			// min-width: 478px;
+			// max-width: 540px;
+		}
+		@media(min-width: $mobile) {
+			.boxer-man .character {
+		    left: -30px;
+		    width: 650px;
+			}
 		}
 	}
 	.ocean-bg {
@@ -487,7 +505,7 @@ p {
 		left: 0;
 		top: 0;
 	}
-	
+
 	.hype-shoes-inner {
 		z-index: 10 !important;
 	}
@@ -695,9 +713,12 @@ p {
 //	height: 100vh;
 	padding: 50px 0;
 	p {
-		text-align: left;
+		text-align: center;
 		margin-bottom: 10px;
 		color: #fff;
+		@media (min-width: $mobile) {
+			text-align: left;
+		}
 		img {
 			width: 100%;
 		}
@@ -754,10 +775,10 @@ p {
 	.social-container {
 		position: relative;
 		width: 100%;
-		height: 130px;
+		height: 70px;
 	}
 	.social-media-links {
-		position: absolute;
+		position: relative;
 		bottom: 0;
 		height: 40px;
 		a {
@@ -769,14 +790,34 @@ p {
 			height: 40px;
 		}
 	}
+	@media (min-width: $mobile) {
+		.social-container {
+			height: 130px;
+		}
+		.social-media-links {
+			position: absolute;
+
+		}
+	}
 }
 .footer-nav {
 	background: #222222;
 	padding: 20px 0;
-    color: #fff;
+  color: #fff;
+  p {
+  	text-align: center;
+  }
 	.divider-link {
 		display: inline-block;
-		margin: 0 15px;
+		margin: 0;
+	}
+	@media(min-width: $mobile) {
+		.divider-link {
+			margin: 0 15px;
+		}
+		p {
+			text-align: left;
+		}
 	}
 	a {
 		color: #fff;
@@ -795,6 +836,12 @@ p {
 }
 
 .copyright {
-	text-align: right;
+	text-align: center;
 	font-family: 'Cousine', sans-serif;
+}
+
+@media (min-width: $mobile) {
+	.copyright {
+		text-align: right;
+	}
 }
