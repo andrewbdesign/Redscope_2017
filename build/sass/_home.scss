@@ -357,6 +357,16 @@ p {
 	margin: 0 0 100px;
 	overflow: hidden;
 	position: relative;
+	.showreel-play-btn {
+    position: absolute;
+	  z-index: 200;
+	  width: 100px;
+	  margin: auto;
+	  left: 0;
+	  right: 0;
+	  top: 0;
+	  bottom: 0;
+	}
 	.bg-image-sections {
 		position: absolute;
 		top: 0;
@@ -417,8 +427,10 @@ p {
 		width: 100%;
 		height: 100%;
 		z-index: 300;
-		left: 160px;
-		bottom: 80px;
+		// left: 160px;
+		// bottom: 80px;
+    left: -80px;
+    bottom: 85px;
 		.swimmer-girl-01 {
 			position: absolute;
 			width: 402px;
@@ -433,6 +445,12 @@ p {
 			top: 151px;
 		}
 	}
+	@media (min-width: $mobile) {
+		.swimmer-girl-container {
+	    left: 140px;
+	    bottom: 90px;
+		}
+	}
 	.food-bg {
 		background-image: url('img/showreel/03-food-dudes-bg.jpg');
 		background-size: cover;
@@ -444,10 +462,17 @@ p {
 	}
 	.food-dudes {
 		position: absolute;
-		width: 620px;
-		bottom: 40px;
-		left: 20px;
+		width: 550px;
+    bottom: 40px;
+    left: -70px;
 		z-index: 50;
+	}
+	@media (min-width: $mobile) {
+		.food-dudes {
+	    width: 620px;
+			bottom: 40px;
+			left: 20px;
+		}
 	}
 	.fashion-bg {
 		background-image: url('img/showreel/04-fashion-bg.jpg');
@@ -462,8 +487,13 @@ p {
 		position: absolute;
 		width: 340px;
 		bottom: 40px;
-		left: 180px;
+		left: 20px;
 		z-index: 50;
+	}
+	@media (min-width: $mobile) {
+		.fashion-chick {
+			left: 180px;
+		}
 	}
 	.swimmer-girl {
 		width: 100%;
@@ -480,7 +510,8 @@ p {
 		width: 100%;
 		height: 100%;
 		z-index: 300;
-		left: 0;
+
+		left: -100px;
 		bottom: 90px;
 		.phone-dude-01 {
 			position: absolute;
@@ -496,6 +527,12 @@ p {
 			top: 37px;
 		}
 	}
+	@media (min-width: $mobile) {
+		.phone-dude-container {
+			left: 0;
+		}
+	}
+
 	.phone-bg {
 		background-image: url('img/showreel/05-phone-dude-bg.jpg');
 		background-size: cover;
@@ -563,8 +600,14 @@ p {
 		.boxer-character {
 			position: absolute;
 			bottom: 0;
-			left: -50px;
-			width: 660px;
+	    left: -150px;
+	    width: 650px;
+		}
+		@media (min-width: $mobile) {
+			.boxer-character {
+				left: -50px;
+				width: 660px;
+			}
 		}
 	}
 	.showreel-btn {

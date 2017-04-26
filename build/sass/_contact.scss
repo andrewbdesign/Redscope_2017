@@ -48,7 +48,7 @@
 		height: 20px;
 		position: relative;
 		margin-left: -20px;
-		
+
 	}
 	.icon-pin {
 		top: 4px;
@@ -75,13 +75,13 @@
 			margin-right: 0;
 		}
 	}
-	
+
 }
 #email-form-section {
 	padding: 100px 0 100px;
 	background: #f2f2f2;
 	.container {
-		width: 680px;
+		max-width: 680px;
 	}
 	.email-container-template {
 		background: #FFF;
@@ -90,7 +90,7 @@
 		position: relative;
 		padding: 30px;
 		font-family: 'Fira Sans', sans-serif;
-		
+
 		input {
 			border-radius: 0;
 			display: block;
@@ -109,7 +109,7 @@
 			background: #e5e5e5;
 			border: none;
 		}
-		
+
 		.submit-btn {
 			background: #c1161c;
 			width: 200px;
@@ -119,5 +119,5 @@
 			color: #fff;
 		}
 	}
-	
+
 }
