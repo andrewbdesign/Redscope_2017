@@ -14,8 +14,23 @@ $(document).ready(function(){
 
 function initAnimation() {
 
+    // Make the videos playable on mobile devices
     var video = document.getElementById('video-el');
     window.makeVideoPlayableInline(video);
+
+    var work01 = document.getElementById('work-01'),
+        work02 = document.getElementById('work-02'),
+        work03 = document.getElementById('work-03'),
+        work04 = document.getElementById('work-04'),
+        work05 = document.getElementById('work-05'),
+        work06 = document.getElementById('work-06');
+
+    window.makeVideoPlayableInline(work01);
+    window.makeVideoPlayableInline(work02);
+    window.makeVideoPlayableInline(work03);
+    window.makeVideoPlayableInline(work04);
+    window.makeVideoPlayableInline(work05);
+    window.makeVideoPlayableInline(work06);
 
     if (showVideo) {
         isDesktop = true;
