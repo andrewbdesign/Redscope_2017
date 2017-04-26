@@ -638,6 +638,49 @@ p {
 	}
 }
 
+#showreel-player-video {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 3000;
+	background: rgba(0,0,0,0.9);
+  width: 100%;
+  height: 100%;
+  pointer-events: all;
+  cursor: pointer;
+}
+
+// #showreel-video {
+// 	position: absolute;
+// 	top: 0;
+// 	left: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	margin: auto;
+// 	width: calc(100% - 200px);
+// }
+
+// @media (min-width: $tablet) {
+// 	#showreel-video {
+// 		max-width: 860px;
+// 	}
+// }
+
+#showreel-player-video{
+	position: fixed;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	// height: 0;
+}
+#showreel-player-video iframe {
+	position: absolute;
+	top: 5%;
+	left: 5%;
+  width: 90%;
+  height: 90%;
+}
+
 // ==========================================
 // Works section
 // ==========================================

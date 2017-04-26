@@ -230,6 +230,30 @@ function startAnimation() {
 
 function adjustCopyLayout() {
 	console.log("adjust copy layout")
+
+  // $('#showreel-player-video').click(function(){
+  // var $frame = $('#showreel-video');
+
+  // // saves the current iframe source
+  // var vidsrc = $('iframe#showreel-video').attr('src', '');
+  // console.log('vidsrc', vidsrc)
+
+  // // sets the source to nothing, stopping the video
+  // $frame.attr('src','');
+
+  // // sets it back to the correct link so that it reloads immediately on the next window open
+  // $frame.attr('src', vidsrc);
+  $('#showreel-player-video').click(function(){
+    $('iframe#showreel-video').attr('src', '')
+    $("#showreel-player-video").fadeOut()
+    console.log('stop yhe video')
+    // $('iframe').remove()
+
+
+    $("body").removeClass("modal-open")
+  })
+
+  // })
 }
 
 function preloadAssets() {
@@ -311,9 +335,16 @@ $("#contact-section").click(function(){
 	window.location.assign("contact.html")
 })
 
-$("#more-works").click(function(){
-	window.location.assign("works.html")
+$('.container-showreel-thumbnail').click(function(){
+  // console.log("Yo")
+  $('iframe#showreel-video').attr('src', 'https://player.vimeo.com/video/207907570')
+  $("body").addClass("modal-open")
+  $("#showreel-player-video").fadeIn()
 })
+
+
+
+
 
 
 
