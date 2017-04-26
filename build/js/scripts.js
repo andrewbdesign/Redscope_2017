@@ -7,6 +7,8 @@ var showVideo = true;
 
 
 $(document).ready(function(){
+
+
 	preloadAssets()
 })
 
@@ -32,7 +34,7 @@ function initAnimation() {
     if (videoURL !== "" && videoURL.indexOf('https://') > -1 && isDesktop && isHome) {
         videoSetup();
     } else {
-		
+
 //		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
 		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
 //        $('.bg-image-01').attr('src', bgImage01);
@@ -84,33 +86,68 @@ function videoSetup() {
 
 function initCSS() {
 	console.log("initCSS")
-	
+
 	TweenMax.set('#video', {autoAlpha:0})
-	
+
 //	TweenMax.set('.bg-image-01', {autoAlpha:0})
 	TweenMax.set('.bg-image-02', {autoAlpha:0})
 	TweenMax.set('.bg-image-03', {autoAlpha:0})
 	TweenMax.set('.bg-image-04', {autoAlpha:0})
 }
 
+var showreelAnimation;
+
 function startAnimation() {
 	console.log("start animation")
-	
+
 	var tl = new TimelineMax()
-	
+
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
+
+	showreelAnimation = new TimelineMax(
+     {repeat:-1}
+    )
 	
-	var showreelAnimation = new TimelineMax()
-	//	showreelAnimation.fromTo('.boxer-man', 2, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '0')
-		showreelAnimation
-	//		.from('.boxer-man', 1, {alpha:0, ease:Power1.easeOut}, '0')
-			.fromTo('.boxer-man .character', 6, {scale:1, x:0}, {scale:1.05, x:-20, ease:Power1.easeOut}, '1')
-	//		.to('.boxer-man', 1, {alpha:0, ease:Power1.easeInOut}, '9')
+	// Boxer man
+	showreelAnimation.fromTo('.boxer-character, .boxer-man', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '0')
+	showreelAnimation.fromTo('.boxer-character', 6, {scale:.9, x:0}, {scale:1, x:-20, ease:Power1.easeOut}, '0')
+	showreelAnimation.fromTo('.boxer-man', 6, {scale:1.1, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '0')
+	showreelAnimation.to('.boxer-character, .boxer-man', .4, {alpha:0, ease:Power1.easeOut}, '4')
 	
+	// Swimming chick
+	showreelAnimation.fromTo('.swimmer-girl-container, .ocean-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '4')
+	showreelAnimation.fromTo('.swimmer-girl-container', 6, {scale:.9, x:0}, {scale:1, x:20, ease:Power1.easeOut}, '4')
+	showreelAnimation.fromTo('.ocean-bg', 6, {scale:1.2, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '4')
+	showreelAnimation.to('.swimmer-girl-container, .ocean-bg', .2, {alpha:0, ease:Power1.easeOut}, '8')
 	
+	// Food dudes
+	showreelAnimation.fromTo('.food-dudes, .food-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '8')
+	showreelAnimation.fromTo('.food-dudes', 6, {scale:.98, x:0}, {scale:1, ease:Power1.easeOut}, '8')
+	showreelAnimation.fromTo('.food-bg', 6, {scale:1.1, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '8')
+	showreelAnimation.to('.food-dudes, .food-bg', .2, {alpha:0, ease:Power1.easeOut}, '12')
 	
+	// Fashion chick
+	showreelAnimation.fromTo('.fashion-chick, .fashion-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '12')
+	showreelAnimation.fromTo('.fashion-chick', 6, {scale:.96, x:0}, {scale:1, ease:Power1.easeOut}, '12')
+	showreelAnimation.fromTo('.fashion-bg', 6, {scale:1.02, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '12')
+	showreelAnimation.to('.fashion-chick, .fashion-bg', .2, {alpha:0, ease:Power1.easeOut}, '16')
+	
+	// Phone dude
+	showreelAnimation.fromTo('.phone-dude-container, .phone-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '16')
+	showreelAnimation.fromTo('.phone-dude-container', 6, {scale:.98, x:0}, {transformOrigin:'50% 100%', scale:1, ease:Power1.easeOut}, '16')
+	showreelAnimation.fromTo('.phone-bg', 6, {scale:1.02, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '16')
+	showreelAnimation.to('.phone-dude-container, .phone-bg', .2, {alpha:0, ease:Power1.easeOut}, '20')
+	
+	// Shoe Chick
+	showreelAnimation.fromTo('.hype-shoes-container, .hype-shoes-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '20')
+	showreelAnimation.fromTo('.hype-shoes-container', 6, {scale:1.03, x:0}, {transformOrigin:'0% 100%', scale:1, ease:Power1.easeOut}, '20')
+	showreelAnimation.fromTo('.hype-shoes-bg', 6, {scale:1.1, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '20')
+	showreelAnimation.to('.hype-shoes-container, .hype-shoes-bg', .2, {alpha:0, ease:Power1.easeOut}, '26')
+
+
+
 	if(isAbout) {
-		
+
 
 		// About text animation
 		var aboutText = new TimelineMax({repeat:-1})
@@ -157,21 +194,21 @@ function startAnimation() {
 
 		aboutText.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '16')
 	}
-	
+
 	$('.video-column video').on('mouseover', function(){
 		$(this).get(0).play()
 		$(this).next().css('opacity', 1)
 	}).on('mouseout', function(){
-		
+
 		$(this).get(0).currentTime = 0;
 		$(this).get(0).pause()
 		$(this).next().css('opacity', 0)
 	})
-	
+
 	$('.bio-column video').on('mouseover', function(){
 		$(this).get(0).play()
 	})
-	
+
 }
 
 function adjustCopyLayout() {
@@ -183,34 +220,63 @@ function preloadAssets() {
     var i = [
 			bgImage02
         ];
-	
+
 	if(isDesktop && isHome) {
 		i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
 		console.log('video-banner')
 	}
-	
+
 	console.log('images assets:', i)
 
     preloadimages(i).done(function () {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
         console.log("images finished loading")
-//		setTimeout(function(){
-			$('.loader').hide()
-			$('#website-section').show()
-			initAnimation()
-//		}, 2000)
+		imagesLoaded = true;
+
 
     })
 }
 
+
+TweenMax.set('#loader-logo', {autoAlpha:0})
+
+var preloaderTimeline = new TimelineMax({
+	onComplete: function() {
+		if(imagesLoaded) {
+			TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
+			TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
+				$('.loader').hide()
+				$('#website-section').show()
+				initAnimation()
+			}}, '0')
+
+		} else {
+			preloaderTimeline.reverse()
+		}
+	},
+	onReverseComplete: function() {
+		preloaderTimeline.play()
+	}
+})
+
+preloaderTimeline.fromTo('#R-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '0')
+preloaderTimeline.fromTo('#E-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.3')
+preloaderTimeline.fromTo('#D-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.6')
+
+preloaderTimeline.fromTo('#S-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.9')
+preloaderTimeline.fromTo('#C-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.2')
+preloaderTimeline.fromTo('#O-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.5')
+preloaderTimeline.fromTo('#P-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.8')
+preloaderTimeline.fromTo('#E-redscope-2 .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '2.1')
+
 $("#menu-button").click(function(){
 	$('#menu-list').fadeIn()
 	$("body").addClass("modal-open")
-	
+
 	TweenMax.set('.right-menu a', {alpha:0, y:-10,})
-	
+
 	var tl = new TimelineMax()
-	
+
 	tl.staggerTo('.right-menu a', .6, {alpha:1, y:0, ease:Power1.eaesOut}, .2, '0')
 })
 
