@@ -107,37 +107,37 @@ function startAnimation() {
 	showreelAnimation = new TimelineMax(
      {repeat:-1}
     )
-	
+
 	// Boxer man
 	showreelAnimation.fromTo('.boxer-character, .boxer-man', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '0')
 	showreelAnimation.fromTo('.boxer-character', 6, {scale:.9, x:0}, {scale:1, x:-20, ease:Power1.easeOut}, '0')
 	showreelAnimation.fromTo('.boxer-man', 6, {scale:1.1, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '0')
 	showreelAnimation.to('.boxer-character, .boxer-man', .4, {alpha:0, ease:Power1.easeOut}, '4')
-	
+
 	// Swimming chick
 	showreelAnimation.fromTo('.swimmer-girl-container, .ocean-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '4')
 	showreelAnimation.fromTo('.swimmer-girl-container', 6, {scale:.9, x:0}, {scale:1, x:20, ease:Power1.easeOut}, '4')
 	showreelAnimation.fromTo('.ocean-bg', 6, {scale:1.2, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '4')
 	showreelAnimation.to('.swimmer-girl-container, .ocean-bg', .2, {alpha:0, ease:Power1.easeOut}, '8')
-	
+
 	// Food dudes
 	showreelAnimation.fromTo('.food-dudes, .food-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '8')
 	showreelAnimation.fromTo('.food-dudes', 6, {scale:.98, x:0}, {scale:1, ease:Power1.easeOut}, '8')
 	showreelAnimation.fromTo('.food-bg', 6, {scale:1.1, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '8')
 	showreelAnimation.to('.food-dudes, .food-bg', .2, {alpha:0, ease:Power1.easeOut}, '12')
-	
+
 	// Fashion chick
 	showreelAnimation.fromTo('.fashion-chick, .fashion-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '12')
 	showreelAnimation.fromTo('.fashion-chick', 6, {scale:.96, x:0}, {scale:1, ease:Power1.easeOut}, '12')
 	showreelAnimation.fromTo('.fashion-bg', 6, {scale:1.02, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '12')
 	showreelAnimation.to('.fashion-chick, .fashion-bg', .2, {alpha:0, ease:Power1.easeOut}, '16')
-	
+
 	// Phone dude
 	showreelAnimation.fromTo('.phone-dude-container, .phone-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '16')
 	showreelAnimation.fromTo('.phone-dude-container', 6, {scale:.98, x:0}, {transformOrigin:'50% 100%', scale:1, ease:Power1.easeOut}, '16')
 	showreelAnimation.fromTo('.phone-bg', 6, {scale:1.02, x:0}, {scale:1, transformOrigin:'50% 50%', ease:Power1.easeOut}, '16')
 	showreelAnimation.to('.phone-dude-container, .phone-bg', .2, {alpha:0, ease:Power1.easeOut}, '20')
-	
+
 	// Shoe Chick
 	showreelAnimation.fromTo('.hype-shoes-container, .hype-shoes-bg', .4, {alpha:0}, {alpha:1, ease:Power1.easeOut}, '20')
 	showreelAnimation.fromTo('.hype-shoes-container', 6, {scale:1.03, x:0}, {transformOrigin:'0% 100%', scale:1, ease:Power1.easeOut}, '20')
@@ -259,15 +259,15 @@ var preloaderTimeline = new TimelineMax({
 	}
 })
 
-preloaderTimeline.fromTo('#R-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '0')
-preloaderTimeline.fromTo('#E-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.3')
-preloaderTimeline.fromTo('#D-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.6')
+preloaderTimeline.fromTo('#R-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '0')
+preloaderTimeline.fromTo('#E-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '.3')
+preloaderTimeline.fromTo('#D-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '.6')
 
-preloaderTimeline.fromTo('#S-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '.9')
-preloaderTimeline.fromTo('#C-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.2')
-preloaderTimeline.fromTo('#O-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.5')
-preloaderTimeline.fromTo('#P-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '1.8')
-preloaderTimeline.fromTo('#E-redscope-2 .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', ease:Power1.easeOut}, '2.1')
+preloaderTimeline.fromTo('#S-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '.9')
+preloaderTimeline.fromTo('#C-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '1.2')
+preloaderTimeline.fromTo('#O-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '1.5')
+preloaderTimeline.fromTo('#P-redscope   .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '1.8')
+preloaderTimeline.fromTo('#E-redscope-2 .ww', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '2.1')
 
 $("#menu-button").click(function(){
 	$('#menu-list').fadeIn()
@@ -338,47 +338,9 @@ function preloadimages(arr) {
     }
 }
 
-/**
- * NOTE: not being used. WIP
- * Scramble text elemtns and apply individual tweens to each character in a DOM element's text as a string
- * @param {String} targetElement the selector for the element with the innerText as a string.
- * @param {String} finalText the text you want to scramble tween to
- * @param {Integer} scrambleSpeed the text you want to scramble tween to
- *
- */
-function doStuff(targetElement, finalText, randomString, timescale, scrambleSpeed) {
-  var timescale = timescale,
-      speed     = scrambleSpeed,
-      scrambleDelay = 0.5;
-  var finalText = finalText,
-      finalTextArr = finalText.split('')
-  var mySplitText = new SplitText(targetElement, {type:"chars"}),
-      chars = mySplitText.chars
-
-  return function() {
-      var tl = new TimelineLite();
-      tl.clear().time(0)
-
-      chars.forEach(function(item, i) {
-        tl
-        .add('iteration')
-        .fromTo(chars[i], 1, {'-webkit-filter': 'blur(2px)'}, {'-webkit-filter': 'blur(0px)'}, "iteration-="+(0.01*i*speed)/4+'"')
-        .to(chars[i], 2, {scrambleText: {text: finalTextArr[i], chars: randomString, speed: .5, ease: Sine.easeInOut, force3D:true}, overwrite: 'auto'}, "iteration-="+0.01*i*speed+'"' )
-        .timeScale(timescale)
-      })
-  }
-}
-
-/**
- * Utility functions
- */
-
-function pause() {
-    TweenLite.to(tl, 2, {timeScale:0})
-    document.querySelectorAll('video').forEach(function(vid) { vid.pause(); })
-}
-
-function play() {
-    TweenLite.to(tl, 2, {timeScale:1})
-    document.querySelectorAll('video').forEach(function(vid) { vid.play(); })
+function iOSversion() {
+    if (/iP(hone|od|ad)/.test(navigator.platform)) {
+        var v = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
+        return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
+    }
 }
