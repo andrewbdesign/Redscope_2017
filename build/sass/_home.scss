@@ -360,7 +360,7 @@ p {
 	position: relative;
 	.showreel-play-btn {
     position: absolute;
-	  z-index: 200;
+	  z-index: 420;
 	  width: 100px;
 	  margin: auto;
 	  left: 0;
@@ -624,7 +624,7 @@ p {
 		font-weight: 700;
 		color: #fff;
 		background: #151515;
-		z-index: 60;
+		z-index: 360;
 	}
 	p {
 		text-align: center;
@@ -650,7 +650,7 @@ p {
 	margin-top: -100px;
 
 	.container {
-		max-width: 750px;
+		max-width: 680px;
 	}
 	.works {
 		text-align: center;
@@ -695,6 +695,7 @@ p {
 			.year {
 				display: inline;
 				font-family: 'Fira Sans', sans-serif;
+				font-size: 14px;
 			}
 			.title {
 				font-weight: 400;
