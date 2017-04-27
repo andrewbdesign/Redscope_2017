@@ -216,40 +216,51 @@ function startAnimation() {
 		$(this).get(0).play()
 		$(this).next().css('opacity', 1)
 	}).on('mouseout', function(){
-
 		$(this).get(0).currentTime = 0;
 		$(this).get(0).pause()
 		$(this).next().css('opacity', 0)
+		$(this).load()
+	})
+
+	$('.video-column video').on('click', function(){
+		console.log('this is video', this)
 	})
 
 	$('.bio-column video').on('mouseover', function(){
 		$(this).get(0).play()
+	}).on('ended', function () {
+		$(this).load()
 	})
 
 }
 
+// Embed code
+/*
+
+// Firstness
+<iframe width="640" height="360" src="https://www.youtube.com/embed/OhWGznK517w" frameborder="0" allowfullscreen></iframe>
+
+// Sony
+<iframe width="640" height="360" src="https://www.youtube.com/embed/U3K3gFHsajs" frameborder="0" allowfullscreen></iframe>
+
+// Adidas
+<iframe width="640" height="360" src="https://www.youtube.com/embed/-73xEK26Tes" frameborder="0" allowfullscreen></iframe>
+
+// Taku
+<iframe width="640" height="360" src="https://www.youtube.com/embed/0nl2yp2mL94" frameborder="0" allowfullscreen></iframe>
+
+// Hypegirl
+<iframe width="640" height="360" src="https://www.youtube.com/embed/gTWEgk4uGqI" frameborder="0" allowfullscreen></iframe>
+
+// NYE Piers
+<iframe width="640" height="360" src="https://www.youtube.com/embed/W4Ckgz8djoQ" frameborder="0" allowfullscreen></iframe>
+*/
+
 function adjustCopyLayout() {
-	console.log("adjust copy layout")
-
-  // $('#showreel-player-video').click(function(){
-  // var $frame = $('#showreel-video');
-
-  // // saves the current iframe source
-  // var vidsrc = $('iframe#showreel-video').attr('src', '');
-  // console.log('vidsrc', vidsrc)
-
-  // // sets the source to nothing, stopping the video
-  // $frame.attr('src','');
-
-  // // sets it back to the correct link so that it reloads immediately on the next window open
-  // $frame.attr('src', vidsrc);
-  $('#showreel-player-video').click(function(){
+  // Showreel video
+  $('#showreel-player-video').click(function() {
     $('iframe#showreel-video').attr('src', '')
     $("#showreel-player-video").fadeOut()
-    console.log('stop yhe video')
-    // $('iframe').remove()
-
-
     $("body").removeClass("modal-open")
   })
 
