@@ -275,7 +275,58 @@ function adjustCopyLayout() {
 function preloadAssets() {
 
     var i = [
-			bgImage02
+			bgImage02,
+      'img/showreel/01-boxer-man-bg.jpg',
+      'img/showreel/01-boxer-man.png',
+      'img/showreel/02-swimmer-bg.jpg',
+      'img/showreel/02-swimmer-girl-01.png',
+      'img/showreel/02-swimmer-girl-02.png',
+      'img/showreel/03-food-dudes-bg.jpg',
+      'img/showreel/03-food-dudes.png',
+      'img/showreel/04-fashion-bg.jpg',
+      'img/showreel/04-fashion-chick.png',
+      'img/showreel/05-phone-dude-01.png',
+      'img/showreel/05-phone-dude-02.png',
+      'img/showreel/05-phone-dude-bg.jpg',
+      'img/showreel/06-hype-shoes-01.png',
+      'img/showreel/06-hype-shoes-02.png',
+      'img/showreel/06-hype-shoes-bg.jpg',
+      'img/showreel/showreel-play-btn.png',
+
+      'img/icon/icon-email.svg',
+      'img/icon/icon-phone.svg',
+      'img/icon/icon-pin.svg',
+      'img/icon/logo-facebook.svg',
+      'img/icon/logo-instagram.svg',
+      'img/icon/logo-vimeo.svg',
+
+      'img/about-hero-image.jpg',
+      'img/letter-a-bg.jpg',
+      'img/letter-a-icon.png',
+      'img/letter-c-bg.jpg',
+      'img/letter-c-icon.png',
+      'img/letter-r-bg.jpg',
+      'img/letter-r-icon.png',
+
+      'works/Adidashypeparty-1.jpg',
+      'works/Adidashypeparty-1.mp4',
+      'works/Adidashypeparty-1.webm',
+      'works/Fitnessplanet-1.jpg',
+      'works/Fitnessplanet-1.mp4',
+      'works/Fitnessplanet-1.webm',
+      'works/Hype_Girl-1.jpg',
+      'works/Hype_Girl-1.mp4',
+      'works/Hype_Girl-1.webm',
+      'works/Piers_Nye-1.jpg',
+      'works/Piers_Nye-1.mp4',
+      'works/Piers_Nye-1.webm',
+      'works/Sony-1.jpg',
+      'works/Sony-1.mp4',
+      'works/Sony-1.webm',
+      'works/Taku-1.jpg',
+      'works/Taku-1.mp4',
+      'works/Taku-1.webm',
+
         ];
 
 	if(isDesktop && isHome) {
