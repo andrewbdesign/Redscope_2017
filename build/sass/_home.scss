@@ -651,22 +651,6 @@ p {
   cursor: pointer;
 }
 
-// #showreel-video {
-// 	position: absolute;
-// 	top: 0;
-// 	left: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	margin: auto;
-// 	width: calc(100% - 200px);
-// }
-
-// @media (min-width: $tablet) {
-// 	#showreel-video {
-// 		max-width: 860px;
-// 	}
-// }
-
 #showreel-player-video{
 	position: fixed;
 	padding-bottom: 56.25%; /* 16:9 */
@@ -681,7 +665,14 @@ p {
 	right: 0;
 	margin: auto;
 	width: 70%;
-	height: 70%;
+	height: 20%;
+}
+
+@media (min-width: $tablet) {
+	#showreel-player-video iframe {
+		width: 70%;
+		height: 50%;
+	}
 }
 
 // ==========================================
