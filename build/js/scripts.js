@@ -308,26 +308,33 @@ function preloadAssets() {
       'img/letter-r-bg.jpg',
       'img/letter-r-icon.png',
 
-      'works/Adidashypeparty-1.jpg',
-      'works/Adidashypeparty-1.mp4',
-      'works/Adidashypeparty-1.webm',
-      'works/Fitnessplanet-1.jpg',
-      'works/Fitnessplanet-1.mp4',
-      'works/Fitnessplanet-1.webm',
-      'works/Hype_Girl-1.jpg',
-      'works/Hype_Girl-1.mp4',
-      'works/Hype_Girl-1.webm',
-      'works/Piers_Nye-1.jpg',
-      'works/Piers_Nye-1.mp4',
-      'works/Piers_Nye-1.webm',
-      'works/Sony-1.jpg',
-      'works/Sony-1.mp4',
-      'works/Sony-1.webm',
-      'works/Taku-1.jpg',
-      'works/Taku-1.mp4',
-      'works/Taku-1.webm',
+
 
         ];
+
+    if (isHome) {
+      i.push(
+        'works/Adidashypeparty-1.jpg',
+          'works/Adidashypeparty-1.mp4',
+          'works/Adidashypeparty-1.webm',
+          'works/Fitnessplanet-1.jpg',
+          'works/Fitnessplanet-1.mp4',
+          'works/Fitnessplanet-1.webm',
+          'works/Hype_Girl-1.jpg',
+          'works/Hype_Girl-1.mp4',
+          'works/Hype_Girl-1.webm',
+          'works/Piers_Nye-1.jpg',
+          'works/Piers_Nye-1.mp4',
+          'works/Piers_Nye-1.webm',
+          'works/Sony-1.jpg',
+          'works/Sony-1.mp4',
+          'works/Sony-1.webm',
+          'works/Taku-1.jpg',
+          'works/Taku-1.mp4',
+          'works/Taku-1.webm'
+
+        )
+    }
 
 	if(isDesktop && isHome) {
 		i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')

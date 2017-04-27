@@ -129,6 +129,7 @@ p {
 			font-size: 16px;
 			padding: 0;
 			margin-bottom: 20px;
+			font-weight: 400;
 		}
 		a:hover {
 			color: #fff;
@@ -158,6 +159,7 @@ p {
 			padding-left: 0;
 			padding-bottom: 20px;
 			font-size: 30px;
+			text-transform: uppercase;
 		}
 	}
 	@media (min-width: $mobile) {
@@ -174,9 +176,14 @@ p {
 		}
 	}
 	@media (min-width: $tablet) {
+		.right-menu {
+	    margin-top: 70px;
+	    position: relative;
+	    left: 31px;
+		}
 		.right-menu a{
-			padding-bottom: 50px;
-			font-size: 50px;
+	    padding-bottom: 64px;
+	    font-size: 60px;
 			padding-left: 0;
 		}
 		.menu-container {
@@ -254,6 +261,11 @@ p {
 		z-index: 1;
 		opacity: .5;
 	}
+}
+
+.right-copy-home {
+    position: relative;
+    top: 70px;
 }
 
 
@@ -434,16 +446,16 @@ p {
     bottom: 85px;
 		.swimmer-girl-01 {
 			position: absolute;
-			width: 402px;
-			bottom: -43px;
-			left: 126px;
+	    width: 442px;
+	    bottom: -63px;
+	    left: 104px;
 			z-index: -10;
 		}
 		.swimmer-girl-02 {
 			position: absolute;
-			width: 360px;
-			left: 262px;
-			top: 151px;
+	    width: 399px;
+	    left: 252px;
+	    top: 143px;
 		}
 	}
 	@media (min-width: $mobile) {
@@ -644,7 +656,7 @@ p {
 	top: 0;
 	left: 0;
 	z-index: 3000;
-	background: rgba(0,0,0,0.9);
+	background: rgba(0,0,0,0.98);
   width: 100%;
   height: 100%;
   pointer-events: all;
@@ -653,8 +665,8 @@ p {
 
 #showreel-player-video{
 	position: fixed;
-	padding-bottom: 56.25%; /* 16:9 */
-	padding-top: 25px;
+	// padding-bottom: 56.25%; /* 16:9 */
+	// padding-top: 25px;
 	// height: 0;
 }
 #showreel-player-video iframe {
@@ -664,15 +676,8 @@ p {
 	bottom: 0;
 	right: 0;
 	margin: auto;
-	width: 70%;
-	height: 20%;
-}
-
-@media (min-width: $tablet) {
-	#showreel-player-video iframe {
-		width: 70%;
-		height: 50%;
-	}
+	width: 960px;
+	height: 540px;
 }
 
 // ==========================================
@@ -681,7 +686,7 @@ p {
 
 #works-section {
 	background: #f4f4f4;
-    padding: 0 0 100px;
+    padding: 0 0 50px;
     position: relative;
     z-index: 2000;
 	margin-top: -100px;
@@ -820,7 +825,7 @@ p {
 	}
 	.icon-pin {
 		top: 4px;
-		right: 6px;
+		right: 16px;
 	}
 	.icon-email {
 		right: 10px;
@@ -831,7 +836,9 @@ p {
 		top: 5px;
 	}
 	.icon-column {
-		padding-left: 40px;
+		padding-left: 50px;
+    position: relative;
+    top: 10px;
 	}
 
 

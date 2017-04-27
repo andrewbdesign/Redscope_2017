@@ -1,6 +1,8 @@
 .about-copy {
 	position: relative;
-    z-index: 20;
+  z-index: 20;
+  bottom: 70px;
+
 }
 
 .about-hero-text {
@@ -70,6 +72,7 @@
 .about-top {
 	padding-top: 440px !important;
 	padding-bottom: 0 !important;
+  overflow: hidden;
 }
 .gradient-about {
 		position: absolute;
@@ -102,6 +105,9 @@
 	position: relative;
 
     bottom: 350px;
+        // position: relative;
+
+    // bottom: 200px !important;
     right: 0;
     z-index: 1;
 	.letter-a {
@@ -145,8 +151,8 @@
 @media (min-width: $tablet) {
 	.img-b {
 		.letter-a {
-	    right: 0;
-	    bottom: -130px;
+        right: -80px;
+	    // bottom: -200px;
 	    max-width: 800px;
 		}
 	}
@@ -167,7 +173,7 @@
 // ===========================
 
 #team-section {
-	padding: 100px 0;
+	padding: 100px 0 30px;
 	.container {
 		max-width: 680px;
 	}
@@ -182,13 +188,18 @@
 	p.member-name {
 		font-family: 'Fira Sans', sans-serif;
 		font-weight: 700;
+    text-align: center;
 	}
 	p.member-role  {
 		font-size: 12px;
 		margin-bottom: 10px;
+    text-align: center;
+    line-height: 17px;
+    padding-top: 6px;
 	}
 	p.member-description {
 		margin-bottom: 30px;
+    text-align: center;
 	}
 	.column {
 		margin: 0 30px;
