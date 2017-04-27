@@ -675,10 +675,13 @@ p {
 }
 #showreel-player-video iframe {
 	position: absolute;
-	top: 5%;
-	left: 5%;
-  width: 90%;
-  height: 90%;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	margin: auto;
+	width: 70%;
+	height: 70%;
 }
 
 // ==========================================

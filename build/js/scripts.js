@@ -223,7 +223,10 @@ function startAnimation() {
 	})
 
 	$('.video-column video').on('click', function(){
-		console.log('this is video', this)
+		var videoLink = $(this).attr('data-video')
+		$('iframe#showreel-video').attr('src', videoLink)
+		$("#showreel-player-video").fadeIn()
+        $("body").addClass("modal-open")
 	})
 
 	$('.bio-column video').on('mouseover', function(){
@@ -231,6 +234,12 @@ function startAnimation() {
 	}).on('ended', function () {
 		$(this).load()
 	})
+
+	$('#showreel-player-video').click(function() {
+      $('iframe#showreel-video').attr('src', '')
+      $("#showreel-player-video").fadeOut()
+      $("body").removeClass("modal-open")
+    })
 
 }
 
@@ -258,11 +267,7 @@ function startAnimation() {
 
 function adjustCopyLayout() {
   // Showreel video
-  $('#showreel-player-video').click(function() {
-    $('iframe#showreel-video').attr('src', '')
-    $("#showreel-player-video").fadeOut()
-    $("body").removeClass("modal-open")
-  })
+
 
   // })
 }
