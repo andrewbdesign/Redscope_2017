@@ -351,12 +351,19 @@ TweenMax.set('#loader-logo', {autoAlpha:0})
 var preloaderTimeline = new TimelineMax({
 	onComplete: function() {
 		if(imagesLoaded) {
-			TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
-			TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
-				$('.loader').hide()
-				$('#website-section').show()
-				initAnimation()
-			}}, '0')
+
+      if(isHome) {
+        TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
+        TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
+    				$('.loader').hide()
+    				$('#website-section').show()
+    				initAnimation()
+    			}}, '0')
+        } else {
+          $('.loader').hide()
+          $('#website-section').show()
+          initAnimation()
+        }
 
 		} else {
 			preloaderTimeline.reverse()
