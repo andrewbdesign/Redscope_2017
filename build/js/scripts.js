@@ -341,20 +341,27 @@ function preloadAssets() {
           'works/Taku-1.webm'
 
         )
+
+				if(isDesktop) {
+						i.push('hero-banner.mp4', 'hero-banner.webm')
+						console.log('mp4 and isDesktop')
+						// i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+						console.log('video-banner')
+				}
     }
 
-	if(isDesktop && isHome) {
-		i.push('hero-banner.mp4', 'hero-banner.webm')
-		console.log('mp4 and isDesktop')
-		// i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
-		console.log('video-banner')
-	}
+	// if(isDesktop && isHome) {
+		// i.push('hero-banner.mp4', 'hero-banner.webm')
+		// console.log('mp4 and isDesktop')
+		// // i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+		// console.log('video-banner')
+	// }
 
 	console.log('images assets:', i)
 
     preloadimages(i).done(function () {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
-        console.log("images finished loading")
+    console.log("images finished loading")
 		imagesLoaded = true;
 
 
