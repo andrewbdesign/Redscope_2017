@@ -38,15 +38,22 @@ function initAnimation() {
         if (md.phone() || md.tablet()) {
             isDesktop = false;
 
-            if(iOSversion()[0] > 9) {
-                isDesktop = true;
-            }
+						if(iOSversion() === undefined) {
+
+						} else {
+								if(iOSversion()[0] > 9) {
+		                isDesktop = true;
+		            }
+						}
+
+
         }
 
     }
 
-    var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
-    if (videoURL !== "" && videoURL.indexOf('https://') > -1 && isDesktop && isHome) {
+    var videoURL = 'hero-banner.mp4';
+    // var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
+    if (videoURL !== "" && isDesktop && isHome) {
         videoSetup();
     } else {
 
@@ -337,7 +344,7 @@ function preloadAssets() {
     }
 
 	if(isDesktop && isHome) {
-		i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+		i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
 		console.log('video-banner')
 	}
 
