@@ -55,6 +55,7 @@ function initAnimation() {
     // var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
     if (videoURL !== "" && isDesktop && isHome) {
         videoSetup();
+				console.log('Video setup ----')
     } else {
 
 //		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
