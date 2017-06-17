@@ -603,6 +603,7 @@ p {
 		z-index: 400;
 		border: 4px solid #fff;
 		pointer-events: all;
+		transform: scale(.8);
 		cursor: pointer;
 		.background-container {
 			width: 100%;
@@ -932,5 +933,12 @@ p {
 @media (min-width: $mobile) {
 	.copyright {
 		text-align: right;
+	}
+
+}
+
+@media (min-width: $mobile) {
+	.container-showreel-thumbnail {
+		transform: scale(1);
 	}
 }

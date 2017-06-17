@@ -51,11 +51,11 @@ function initAnimation() {
 
     }
 
-    var videoURL = 'hero-banner.mp4';
-    // var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
-    if (videoURL !== "" && isDesktop && isHome) {
+    // var videoURL = 'hero-banner.mp4';
+    var videoURL = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
+    if (videoURL !== "" && videoURL.indexOf('https://') > -1 && isDesktop && isHome) {
         videoSetup();
-				console.log('Video setup ----')
+				// console.log('Video setup ----')
     } else {
 
 //		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
@@ -71,8 +71,8 @@ function videoSetup() {
 
     $('#video').show();
 
-    var mp4 = 'hero-banner.mp4';
-    var webm = 'hero-banner.webm';
+    var mp4 = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4';
+    var webm = 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm';
 
     var vid = document.getElementById('video-el');
 
@@ -344,9 +344,9 @@ function preloadAssets() {
         )
 
 				if(isDesktop) {
-						i.push('hero-banner.mp4', 'hero-banner.webm')
-						console.log('mp4 and isDesktop')
-						// i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+						// i.push('hero-banner.mp4', 'hero-banner.webm')
+						// console.log('mp4 and isDesktop')
+						i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
 						console.log('video-banner')
 				}
     }
