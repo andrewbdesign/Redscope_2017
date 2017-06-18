@@ -7,9 +7,21 @@ var showVideo = true;
 
 
 $(document).ready(function(){
-
-
 	preloadAssets()
+
+	TweenMax.set('.boxer-character', {alpha:0})
+	TweenMax.set('.boxer-man', {alpha:0})
+	TweenMax.set('.swimmer-girl-container', {alpha:0})
+	TweenMax.set('.ocean-bg', {alpha:0})
+	TweenMax.set('.food-bg', {alpha:0})
+	TweenMax.set('.food-dudes', {alpha:0})
+	TweenMax.set('.fashion-chick', {alpha:0})
+	TweenMax.set('.fashion-bg', {alpha:0})
+	TweenMax.set('.phone-bg', {alpha:0})
+	TweenMax.set('.phone-dude-container', {alpha:0})
+	TweenMax.set('.hype-shoes-bg', {alpha:0})
+	TweenMax.set('.hype-shoes-container', {alpha:0})
+	
 })
 
 function initAnimation() {
@@ -118,6 +130,8 @@ function initCSS() {
 	TweenMax.set('.bg-image-02', {autoAlpha:0})
 	TweenMax.set('.bg-image-03', {autoAlpha:0})
 	TweenMax.set('.bg-image-04', {autoAlpha:0})
+
+
 }
 
 var showreelAnimation;
@@ -333,10 +347,6 @@ function preloadAssets() {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
     console.log("images finished loading")
 		imagesLoaded = true;
-
-		$("#showreel-section").show()
-
-
     })
 }
 
