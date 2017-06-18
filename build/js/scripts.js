@@ -251,28 +251,6 @@ function startAnimation() {
 
 }
 
-// Embed code
-/*
-
-// Firstness
-<iframe width="640" height="360" src="https://www.youtube.com/embed/OhWGznK517w" frameborder="0" allowfullscreen></iframe>
-
-// Sony
-<iframe width="640" height="360" src="https://www.youtube.com/embed/U3K3gFHsajs" frameborder="0" allowfullscreen></iframe>
-
-// Adidas
-<iframe width="640" height="360" src="https://www.youtube.com/embed/-73xEK26Tes" frameborder="0" allowfullscreen></iframe>
-
-// Taku
-<iframe width="640" height="360" src="https://www.youtube.com/embed/0nl2yp2mL94" frameborder="0" allowfullscreen></iframe>
-
-// Hypegirl
-<iframe width="640" height="360" src="https://www.youtube.com/embed/gTWEgk4uGqI" frameborder="0" allowfullscreen></iframe>
-
-// NYE Piers
-<iframe width="640" height="360" src="https://www.youtube.com/embed/W4Ckgz8djoQ" frameborder="0" allowfullscreen></iframe>
-*/
-
 function adjustCopyLayout() {
   // Showreel video
 
@@ -347,23 +325,16 @@ function preloadAssets() {
 						// i.push('hero-banner.mp4', 'hero-banner.webm')
 						// console.log('mp4 and isDesktop')
 						i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
-						console.log('video-banner')
+						// console.log('video-banner')
 				}
     }
-
-	// if(isDesktop && isHome) {
-		// i.push('hero-banner.mp4', 'hero-banner.webm')
-		// console.log('mp4 and isDesktop')
-		// // i.push('hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
-		// console.log('video-banner')
-	// }
-
-	console.log('images assets:', i)
 
     preloadimages(i).done(function () {
         // ONCE IMAGES ARE PRE-LOADED BEGIN ANIMATION
     console.log("images finished loading")
 		imagesLoaded = true;
+
+		$("#showreel-section").show()
 
 
     })
@@ -490,3 +461,92 @@ function iOSversion() {
         return [parseInt(v[1], 10), parseInt(v[2], 10), parseInt(v[3] || 0, 10)];
     }
 }
+
+
+// INSTAGRAM
+
+var ig = {};
+// !!! USE YOUR OWN TOKEN
+ig.token = '1088739939.09045a6.7f7e07e836f742ab9b4c3b3068dd678f';
+
+ig.init = function() {
+  $('.instagram').each(function(i) {
+    var args = {};
+    args.container = $(this);
+    args.userid = args.container.data('userid');
+    args.limit = args.container.data('limit');
+    args.feedurl = 'https://api.instagram.com/v1/users/'+args.userid+'/media/recent/?access_token='+ig.token+'&count='+args.limit+'&callback=?';
+    args.html = '';
+    // PASS ARGS TO QUERY
+    ig.query(args);
+  });
+}
+
+ig.query = function(args) {
+  $.getJSON(args.feedurl, {}, function(data) {
+		// PASS QUERY DATA TO BUILDER
+		ig.build(data, args);
+	});
+}
+
+
+ig.build = function(data, args) {
+
+  $.each(data.data,function (i,item) {
+		var videoLink;
+    if (item.caption) var caption = item.caption.text;
+    var thumb = item.images.low_resolution.url;
+    var img = item.images.standard_resolution.url;
+		var videoType = item.type === 'video';
+		if(videoType) {
+			videoLink = item.videos.standard_resolution.url;
+		}
+
+		var instaLink = item.link;
+    //get 1280 size photo [hack until avail in api]
+    var hires = img.replace('s640x640', '1080x1080');
+    args.html += '<a class="image" style="background-image: url('+thumb+');" data-img="'+hires+'" data-url="' + instaLink + '">';
+    if (caption) {
+			var captionLength = caption;
+					captionLength = captionLength.length;
+			var textLimiter = 90;
+			if (captionLength > textLimiter) { caption = caption.substr(0,textLimiter); }
+				args.html += '<span class="caption">'+caption+'...';
+		}
+    args.html += '</a>';
+    // PASS TO OUTPUT
+    ig.output(args);
+  });
+}
+
+ig.output = function(args) {
+  args.container.html(args.html);
+}
+
+
+
+ig.view = {
+  viewer: $('.igviewer'),
+  image: $('.igviewer img'),
+  open: function(img) {
+    ig.view.viewer.removeClass('hidden');
+    ig.view.image.attr('src', img);
+  },
+  close: function() {
+    ig.view.viewer.addClass('hidden');
+    ig.view.image.attr('src', '');
+  }
+}
+
+ig.init();
+
+//Listeners
+$('.instagram').on('click', '.image', function(){
+  var img = this.dataset.img;
+  ig.view.open(img);
+	$("body").addClass("modal-open")
+});
+$('.igviewer').on('click', function(){
+  ig.view.close();
+	$("body").removeClass("modal-open")
+});
