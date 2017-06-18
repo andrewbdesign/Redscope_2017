@@ -530,18 +530,22 @@ ig.build = function(data, args) {
 		if(videoType) {
 			videoLink = item.videos.standard_resolution.url;
 		}
-
+		console.log(item, i)
 		var instaLink = item.link;
+
+		var commentCount = item.comments.count;
+		var likeCount = item.likes.count;
     //get 1280 size photo [hack until avail in api]
     var hires = img.replace('s640x640', '1080x1080');
     args.html += '<a class="image" style="background-image: url('+thumb+');" data-img="'+hires+'" data-url="' + instaLink + '">';
-    if (caption) {
-			var captionLength = caption;
-					captionLength = captionLength.length;
-			var textLimiter = 90;
-			if (captionLength > textLimiter) { caption = caption.substr(0,textLimiter); }
-				args.html += '<span class="caption">'+caption+'...';
-		}
+    // if (caption) {
+		// 	var captionLength = caption;
+		// 			captionLength = captionLength.length;
+		// 	var textLimiter = 90;
+		// 	if (captionLength > textLimiter) { caption = caption.substr(0,textLimiter); }
+		// 		args.html += '<span class="caption">'+caption+'...';
+		// }
+		args.html+= '<span class="caption"><img class="icon-heart" src="img/icon/icon-heart.svg"> ' + likeCount +  '<img class="icon-comment" src="img/icon/icon-comment.svg">' + commentCount + ' </span>'
     args.html += '</a>';
     // PASS TO OUTPUT
     ig.output(args);
@@ -572,10 +576,12 @@ ig.init();
 //Listeners
 $('.instagram').on('click', '.image', function(){
   var img = this.dataset.img;
-  ig.view.open(img);
-	$("body").addClass("modal-open")
+	var url = this.dataset.url;
+  // ig.view.open(img);
+	// $("body").addClass("modal-open")
+	window.open(url)
 });
-$('.igviewer').on('click', function(){
-  ig.view.close();
-	$("body").removeClass("modal-open")
-});
+// $('.igviewer').on('click', function(){
+//   ig.view.close();
+// 	$("body").removeClass("modal-open")
+// });
