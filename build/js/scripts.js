@@ -130,6 +130,7 @@ function initCSS() {
 	TweenMax.set('.bg-image-02', {autoAlpha:0})
 	TweenMax.set('.bg-image-03', {autoAlpha:0})
 	TweenMax.set('.bg-image-04', {autoAlpha:0})
+	TweenMax.set('.arrow-container', {autoAlpha:0})
 
 
 }
@@ -139,9 +140,20 @@ var showreelAnimation;
 function startAnimation() {
 	console.log("start animation")
 
+	var downArrow = new TimelineMax({
+		repeat: -1
+	})
+
+	downArrow.to('.down-arrow', 1, {y:10, ease:Power1.easeOut}, '0')
+	downArrow.to('.down-arrow', 1, {y:0, ease:Power1.easeOut}, '1')
+
+
 	var tl = new TimelineMax()
 
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
+	tl.to('.arrow-container', 2, {autoAlpha:.7, ease:Power1.easeOut, onStart:function(){
+		$('.arrow-container').show()
+	}}, '3')
 
 	showreelAnimation = new TimelineMax(
      {repeat:-1}
@@ -234,15 +246,22 @@ function startAnimation() {
 		aboutText.staggerFromTo('#word-01 div', .5, {alpha:0}, {alpha:1}, .1, '16')
 	}
 
-	$('.video-column video').on('mouseover', function(){
-		$(this).get(0).play()
-		$(this).next().css('opacity', 1)
-	}).on('mouseout', function(){
-		$(this).get(0).currentTime = 0;
-		$(this).get(0).pause()
-		$(this).next().css('opacity', 0)
-		$(this).load()
-	})
+	if(md.phone() || md.tablet()) {
+		$('.hover-overlay').css('opacity', 1)
+		$('.play-icon').css('display', 'none')
+	} else {
+		$('.video-column video').on('mouseover', function(){
+			$(this).get(0).play()
+			$(this).next().css('opacity', 1)
+		}).on('mouseout', function(){
+			$(this).get(0).currentTime = 0;
+			$(this).get(0).pause()
+			$(this).next().css('opacity', 0)
+			$(this).load()
+		})
+	}
+
+
 
 	$('.video-column video').on('click', function(){
 		var videoLink = $(this).attr('data-video')
