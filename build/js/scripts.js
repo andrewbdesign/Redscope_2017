@@ -21,7 +21,7 @@ $(document).ready(function(){
 	TweenMax.set('.phone-dude-container', {alpha:0})
 	TweenMax.set('.hype-shoes-bg', {alpha:0})
 	TweenMax.set('.hype-shoes-container', {alpha:0})
-	
+
 })
 
 function initAnimation() {
@@ -70,7 +70,7 @@ function initAnimation() {
 				// console.log('Video setup ----')
     } else {
 
-//		$('.bg-image.hero-bg-image').css('background-image', 'url('+ bgImage01 + ')')
+		// $('.bg-image.hero-bg-image').css('background-image', 'url(img/about-hero-image.jpg)')
 		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
 //        $('.bg-image-01').attr('src', bgImage01);
         initCSS();
@@ -98,7 +98,7 @@ function videoSetup() {
 
 
         if (vid.readyState == 3 || vid.readyState == 4 || vid.readyState == 2 || vid.readyState == 'complete' || vid.readyState == 'loaded') {
-
+						console.log('video loaded')
             $('.bg-image').hide();
             initCSS();
             startAnimation();

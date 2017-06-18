@@ -370,6 +370,7 @@ p {
 	margin: 0 0 100px;
 	overflow: hidden;
 	position: relative;
+
 	.showreel-play-btn {
     position: absolute;
 	  z-index: 420;
@@ -604,6 +605,7 @@ p {
 		border: 4px solid #fff;
 		pointer-events: all;
 		transform: scale(.8);
+		overflow: hidden;
 		cursor: pointer;
 		.background-container {
 			width: 100%;
@@ -637,7 +639,7 @@ p {
 		font-weight: 700;
 		color: #fff;
 		background: #151515;
-		z-index: 200;
+		z-index: 400;
 	}
 	p {
 		text-align: center;
@@ -648,6 +650,15 @@ p {
 		border-radius: 0px;
 		width: 100%;
 		letter-spacing: 0;
+	}
+}
+
+@media (min-width: $tablet) {
+	.container-showreel-thumbnail {
+		overflow: visible !important;
+	}
+	.showreel-btn {
+		z-index: 200;
 	}
 }
 
