@@ -357,7 +357,7 @@ function preloadAssets() {
 				if(isDesktop) {
 						// i.push('hero-banner.mp4', 'hero-banner.webm')
 						// console.log('mp4 and isDesktop')
-						i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
+						// i.push('https://andrewbdesign.github.io/Redscope_2017/hero-banner.mp4', 'https://andrewbdesign.github.io/Redscope_2017/hero-banner.webm')
 						// console.log('video-banner')
 				}
     }
@@ -496,7 +496,7 @@ function iOSversion() {
 
 var ig = {};
 // !!! USE YOUR OWN TOKEN
-ig.token = '1088739939.09045a6.7f7e07e836f742ab9b4c3b3068dd678f';
+ig.token = '1132227865.66dbdc4.f568369f12cf49ea8494b82e1a3b5464';
 
 ig.init = function() {
   $('.instagram').each(function(i) {
