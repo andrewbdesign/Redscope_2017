@@ -6,9 +6,38 @@ var bgImage02 = 'img/about-hero-image.jpg'
 var showVideo = true;
 
 
+
+var preloaderTimeline = new TimelineMax({
+	onComplete: function() {
+		if(imagesLoaded) {
+
+			if(isHome) {
+				TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
+				TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
+						$('.loader').hide()
+						$('#website-section').show()
+						initAnimation()
+					}}, '0')
+				} else {
+					$('.loader').hide()
+					$('#website-section').show()
+					initAnimation()
+				}
+
+		} else {
+			preloaderTimeline.reverse()
+		}
+	},
+	onReverseComplete: function() {
+		preloaderTimeline.play()
+	}
+})
+
+
 $(document).ready(function(){
 	preloadAssets()
 
+	TweenMax.set('#loader-logo', {autoAlpha:0})
 	TweenMax.set('.boxer-character', {alpha:0})
 	TweenMax.set('.boxer-man', {alpha:0})
 	TweenMax.set('.swimmer-girl-container', {alpha:0})
@@ -71,7 +100,7 @@ function initAnimation() {
     } else {
 
 		// $('.bg-image.hero-bg-image').css('background-image', 'url(img/about-hero-image.jpg)')
-		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
+
 //        $('.bg-image-01').attr('src', bgImage01);
         initCSS();
         startAnimation();
@@ -199,6 +228,7 @@ function startAnimation() {
 
 	if(isAbout) {
 
+		$('.bg-image.about-bg-image').css('background-image', 'url('+ bgImage02 + ')')
 
 		// About text animation
 		var aboutText = new TimelineMax({repeat:-1})
@@ -377,33 +407,8 @@ function preloadAssets() {
 }
 
 
-TweenMax.set('#loader-logo', {autoAlpha:0})
 
-var preloaderTimeline = new TimelineMax({
-	onComplete: function() {
-		if(imagesLoaded) {
 
-      if(isHome) {
-        TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
-        TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
-    				$('.loader').hide()
-    				$('#website-section').show()
-    				initAnimation()
-    			}}, '0')
-        } else {
-          $('.loader').hide()
-          $('#website-section').show()
-          initAnimation()
-        }
-
-		} else {
-			preloaderTimeline.reverse()
-		}
-	},
-	onReverseComplete: function() {
-		preloaderTimeline.play()
-	}
-})
 
 preloaderTimeline.fromTo('#R-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '0')
 preloaderTimeline.fromTo('#E-redscope .rr', 2, {drawSVG:'0%'}, {drawSVG:'100%', force3D:true, ease:Power1.easeOut}, '.3')
@@ -584,11 +589,31 @@ ig.init();
 $('.instagram').on('click', '.image', function(){
   var img = this.dataset.img;
 	var url = this.dataset.url;
-  // ig.view.open(img);
-	// $("body").addClass("modal-open")
 	window.open(url)
 });
-// $('.igviewer').on('click', function(){
-//   ig.view.close();
-// 	$("body").removeClass("modal-open")
-// });
+
+
+
+
+$(function() {
+	var COOKIE_NAME = 'splash-page-cookie';
+	$go = $.cookie(COOKIE_NAME);
+	if ($go == null) {
+		$.cookie(COOKIE_NAME, 'test', { path: '/', expires: 0 });
+		// window.location = "/splash.php"
+		console.log("It's my first day")
+		preloadAssets()
+	}
+	else {
+		console.log('welcome back user')
+		preloaderTimeline.kill()
+		// imagesLoaded = true;
+		initCSS()
+		startAnimation()
+		videoSetup()
+		$('.loader').hide()
+		$('#website-section').show()
+
+
+	}
+});
