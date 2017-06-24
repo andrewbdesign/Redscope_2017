@@ -151,9 +151,9 @@ function startAnimation() {
 	var tl = new TimelineMax()
 
 	tl.to('#video', 2, {autoAlpha:1, ease:Power1.easeOut}, '0')
-	tl.to('.arrow-container', 2, {autoAlpha:.7, ease:Power1.easeOut, onStart:function(){
+	tl.to('.arrow-container', 1.2, {autoAlpha:.7, ease:Power1.easeOut, onStart:function(){
 		$('.arrow-container').show()
-	}}, '3')
+	}}, '1')
 
 	showreelAnimation = new TimelineMax(
      {repeat:-1}
@@ -261,6 +261,12 @@ function startAnimation() {
 		})
 	}
 
+	$(".arrow-container").click(function(){
+		TweenMax.to(window, 1.2, {scrollTo:"#about-section", ease: Power1.easeOut});
+	})
+
+
+
 
 
 	$('.video-column video').on('click', function(){
@@ -285,10 +291,7 @@ function startAnimation() {
 }
 
 function adjustCopyLayout() {
-  // Showreel video
 
-
-  // })
 }
 
 function preloadAssets() {
