@@ -626,6 +626,7 @@ p {
 		transform: scale(.8);
 		overflow: hidden;
 		cursor: pointer;
+		pointer-events: all !important;
 		.background-container {
 			width: 100%;
 			height: 100%;

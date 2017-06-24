@@ -18,5 +18,8 @@
     "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
     "gulp-zip": "^3.2.0"
+  },
+  "dependencies": {
+    "parallax-js": "git+https://github.com/wagerfield/parallax.git"
   }
 }

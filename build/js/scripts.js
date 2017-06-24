@@ -291,7 +291,11 @@ function startAnimation() {
 }
 
 function adjustCopyLayout() {
-
+	var scene = $('#scene').get(0)
+	var parallax = new Parallax(scene, {
+		// limitX: 200,
+	  // limitY: 10,
+	})
 }
 
 function preloadAssets() {
