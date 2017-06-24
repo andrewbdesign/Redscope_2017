@@ -602,7 +602,7 @@ $(function() {
 		$.cookie(COOKIE_NAME, 'test', { path: '/', expires: 0 });
 		// window.location = "/splash.php"
 		console.log("It's my first day")
-		preloadAssets()
+		// preloadAssets()
 	}
 	else {
 		console.log('welcome back user')
