@@ -5,8 +5,6 @@ var imagesLoaded = false;
 var bgImage02 = 'img/about-hero-image.jpg'
 var showVideo = true;
 
-
-
 var preloaderTimeline = new TimelineMax({
 	onComplete: function() {
 		if(imagesLoaded) {
@@ -14,14 +12,10 @@ var preloaderTimeline = new TimelineMax({
 			if(isHome) {
 				TweenMax.to('#loader-logo', 1, {autoAlpha:1, ease:Power1.eaesOut}, '0')
 				TweenMax.to('#loader-logo-outline', 1, {alpha:0, ease:Power1.eaesOut, onComplete:function(){
-						$('.loader').hide()
-						$('#website-section').show()
-						initAnimation()
+						finishIntro()
 					}}, '0')
 				} else {
-					$('.loader').hide()
-					$('#website-section').show()
-					initAnimation()
+					finishIntro()
 				}
 
 		} else {
@@ -32,6 +26,8 @@ var preloaderTimeline = new TimelineMax({
 		preloaderTimeline.play()
 	}
 })
+
+
 
 
 $(document).ready(function(){
@@ -595,25 +591,36 @@ $('.instagram').on('click', '.image', function(){
 
 
 
-$(function() {
-	var COOKIE_NAME = 'splash-page-cookie';
-	$go = $.cookie(COOKIE_NAME);
-	if ($go == null) {
-		$.cookie(COOKIE_NAME, 'test', { path: '/', expires: 0 });
-		// window.location = "/splash.php"
-		console.log("It's my first day")
-		// preloadAssets()
-	}
-	else {
-		console.log('welcome back user')
-		preloaderTimeline.kill()
-		// imagesLoaded = true;
-		initCSS()
-		startAnimation()
-		videoSetup()
-		$('.loader').hide()
-		$('#website-section').show()
+// var COOKIE_NAME;
+// $(function() {
+// 	COOKIE_NAME = 'splash-page-cookie';
+// 	$go = $.cookie(COOKIE_NAME);
+// 	if ($go == null) {
+// 		$.cookie(COOKIE_NAME, 'test', { path: '/', expires: 0 });
+// 		// window.location = "/splash.php"
+// 		console.log("It's my first day")
+//
+// 		// preloadAssets()
+// 	}
+// 	else {
+// 		console.log('welcome back user')
+// 		// preloaderTimeline.kill()
+// 		// imagesLoaded = true;
+// 		// initCSS()
+// 		// startAnimation()
+// 		// videoSetup()
+// 		// $('.loader').hide()
+// 		// $('#website-section').show()
+// 		finishIntro()
+//
+//
+// 	}
+// });
 
 
-	}
-});
+function finishIntro() {
+	console.log('finish intro')
+	$('.loader').hide()
+	$('#website-section').show()
+	initAnimation()
+}
