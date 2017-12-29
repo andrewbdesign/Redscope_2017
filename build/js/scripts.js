@@ -314,14 +314,167 @@ function startAnimation() {
       $("body").removeClass("modal-open")
     })
 
+		// Scroll magic plugins
+		// init controller
+		var controller = new ScrollMagic.Controller();
+
+		if(isHome) {
+			// create a scene
+			var aboutCopyText = new TimelineMax();
+			aboutCopyText.from('#about-section .img-a', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '0')
+									 .from('.right-copy-home', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '.4')
+			var scene01 = new ScrollMagic.Scene({
+			      triggerElement: '#about-section .img-a', // element
+			      triggerHook: 0.7,
+						reverse: true,
+			  })
+				.setTween(aboutCopyText)
+			  .addTo(controller)
+
+				// create a scene
+				var showReelTween = new TimelineMax();
+				showReelTween.from('#showreel-section #scene', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, '0')
+				var scene02 = new ScrollMagic.Scene({
+			      triggerElement: '#showreel-section', // element
+			      triggerHook: 0.7,
+						reverse: true,
+			  })
+				.setTween(showReelTween)
+			  .addTo(controller)
+
+				// create a scene
+				var worksTl = new TimelineMax();
+				worksTl.staggerFrom('#works-section .video-column', .7, {y:40, autoAlpha:0, ease:Power1.easeOut}, .2, '0')
+				var scene03 = new ScrollMagic.Scene({
+			      triggerElement: '#works-section', // element
+			      triggerHook: 0.5,
+						reverse: true,
+			  })
+				.setTween(worksTl)
+			  .addTo(controller)
+
+				TweenMax.set('#contact-section p', {y:22, scale:1.4})
+				TweenMax.set('#contact-section h1', {autoAlpha:0, y:-70})
+
+				if(!md.phone() || !md.tablet()) {
+					$("#contact-section").hover(
+						function(){
+							var tl = new TimelineMax()
+									tl.to('#contact-section p', .3, {autoAlpha:0, y:66}, '0')
+									tl.to('#contact-section h1', .3, {autoAlpha:1, y:-15}, '0')
+									tl.to('.overlay-colour-cta-btn', .3, {yPercent:100}, '0')
+									// $('.overlay-colour-cta-btn').css('top', '0')
+						},
+						function () {
+							var tl = new TimelineMax()
+									tl.to('#contact-section p', .3, {autoAlpha:1, y:22}, '0')
+									tl.to('#contact-section h1', .3, {autoAlpha:0, y:-70}, '0')
+									tl.to('.overlay-colour-cta-btn', .3, {yPercent:0}, '0')
+						}
+					)
+				}
+
+
+				// var ctaButton = new TimelineMax();
+				// TweenMax.set('#arrow-cta-btn', {x:4})
+				// ctaButton.to('#contact-section p', .3, {y:0, force3D:true, ease:Power1.easeInOut}, '0')
+				// 				 .from('#contact-section h1', .3, { autoAlpha:0, force3D:true, ease:Power1.easeInOut}, '0')
+				// 				 .from('#arrow-cta-btn', .3, {autoAlpha:0, ease:Power1.easeOut, onComplete: function(){ ctaBtn() }}, '1')
+
+				// var playedOnce = true;
+				// function ctaBtn(){
+				//
+				// 	if(playedOnce) {
+				// 		playedOnce = false;
+				//
+				// 		var tl = new TimelineMax({repeat:-1});
+				// 		tl.to('#contact-section h1 #arrow-cta-btn', 1, {x:10, ease:Power1.easeInOut}, '0')
+				// 		.to('#contact-section h1 #arrow-cta-btn', 1, {x:4, ease:Power1.easeInOut}, '1')
+				// 	}
+				// }
+
+				// var scene04 = new ScrollMagic.Scene({
+			  //     triggerElement: '#contact-section', // element
+			  //     triggerHook: 0.5,
+				// 		reverse: true,
+			  // })
+				// .setTween(ctaButton)
+			  // .addTo(controller)
+
+				//#de1f26
+				// create a scene
+				var worksMenu = new ScrollMagic.Scene({
+			      triggerElement: '#works-section', // element
+			      triggerHook: 0,
+						reverse: true,
+						duration: '100%'
+			  })
+				.setClassToggle('#menu1', 'invert-colour')
+			  .addTo(controller)
+
+				var instagramMenu = new ScrollMagic.Scene({
+			      triggerElement: '#instagram-feed', // element
+			      triggerHook: 0,
+						reverse: true,
+						duration: '100%'
+			  })
+				.setClassToggle('#menu1', 'invert-colour')
+			  .addTo(controller)
+			}
+
+			if(isAbout) {
+				var scene02 = new ScrollMagic.Scene({
+			      triggerElement: '#showreel-section', // element
+			      triggerHook: 0.7,
+						reverse: false,
+			  })
+				.setClassToggle('.container-showreel-thumbnail', 'fade-in')
+			  .addTo(controller)
+
+				var teamMenu = new TimelineMax();
+				teamMenu.staggerFrom('#team-section .bio-column', 1, {autoAlpha:0, ease:Power1.easeOut}, .12, '0')
+				var scene03 = new ScrollMagic.Scene({
+			      triggerElement: '#team-section', // element
+			      triggerHook: 0.5,
+						reverse: false,
+			  })
+				.setTween(teamMenu)
+			  .addTo(controller)
+
+
+
+				var removeClassMenu = TweenMax.to('#menu1', .1, {ease:Power1.easeOut, onStart:function(){
+					$('#menu1').removeClass('invert-colour')
+				}})
+				var contactMenu = new ScrollMagic.Scene({
+			      triggerElement: '#contact-section', // element
+			      triggerHook: 0,
+						reverse: true,
+						duration: '100%'
+			  })
+				.setTween(removeClassMenu)
+			  .addTo(controller)
+
+				var instagramMenu = new ScrollMagic.Scene({
+			      triggerElement: '#instagram-feed', // element
+			      triggerHook: 0,
+						reverse: true,
+						duration: '100%'
+			  })
+				.setClassToggle('#menu1', 'invert-colour')
+			  .addTo(controller)
+			}
+
 }
 
+
+
 function adjustCopyLayout() {
-	var scene = $('#scene').get(0)
-	var parallax = new Parallax(scene, {
+	// var scene = $('#scene').get(0)
+	// var parallax = new Parallax(scene, {
 		// limitX: 200,
 	  // limitY: 10,
-	})
+	// })
 }
 
 function preloadAssets() {
@@ -616,6 +769,8 @@ $('.instagram').on('click', '.image', function(){
 //
 // 	}
 // });
+
+
 
 
 function finishIntro() {
